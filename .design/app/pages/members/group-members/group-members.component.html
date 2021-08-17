@@ -1,0 +1,25 @@
+<form [formGroup]="form" (contextmenu)="__elementSelectionService.select('895524335',$event)" [ngStyle]="__elementSelectionService.getStyles('895524335')"(click)='__elementSelectionService.clear()'>   
+	<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('1801297823',$event)" [ngStyle]="__elementSelectionService.getStyles('1801297823')">
+		<div class="col-sm-12" (contextmenu)="__elementSelectionService.select('430901540',$event)" [ngStyle]="__elementSelectionService.getStyles('430901540')">
+			<h5 class="info-text" (contextmenu)="__elementSelectionService.select('672231451',$event)" [ngStyle]="__elementSelectionService.getStyles('672231451')">Add Details Of Group Members</h5>
+		</div>
+	</div> 
+	<table class="table table-hover" (contextmenu)="__elementSelectionService.select('2093140418',$event)" [ngStyle]="__elementSelectionService.getStyles('2093140418')">
+		<thead class="text-green" (contextmenu)="__elementSelectionService.select('2078539938',$event)" [ngStyle]="__elementSelectionService.getStyles('2078539938')">
+			<tr (contextmenu)="__elementSelectionService.select('451137747',$event)" [ngStyle]="__elementSelectionService.getStyles('451137747')">
+				<th (contextmenu)="__elementSelectionService.select('961669692',$event)" [ngStyle]="__elementSelectionService.getStyles('961669692')">#</th>
+				<th (contextmenu)="__elementSelectionService.select('1404549133',$event)" [ngStyle]="__elementSelectionService.getStyles('1404549133')">Full Name</th>
+				<th (contextmenu)="__elementSelectionService.select('143475657',$event)" [ngStyle]="__elementSelectionService.getStyles('143475657')">National ID</th>
+				<th (contextmenu)="__elementSelectionService.select('216825667',$event)" [ngStyle]="__elementSelectionService.getStyles('216825667')">Phone</th>
+			</tr>
+		</thead>
+		<tbody (contextmenu)="__elementSelectionService.select('979002600',$event)" [ngStyle]="__elementSelectionService.getStyles('979002600')">
+			<tr *ngFor="let m of members; let i=index" (contextmenu)="__elementSelectionService.select('1422115966',$event)" [ngStyle]="__elementSelectionService.getStyles('1422115966')">
+				<td (contextmenu)="__elementSelectionService.select('917653028',$event)" [ngStyle]="__elementSelectionService.getStyles('917653028')">{{i+1}}</td>
+				<td (contextmenu)="__elementSelectionService.select('1498100182',$event)" [ngStyle]="__elementSelectionService.getStyles('1498100182')">{{m.FullName}}</td>
+				<td (contextmenu)="__elementSelectionService.select('819950387',$event)" [ngStyle]="__elementSelectionService.getStyles('819950387')">{{m.IdDocumentNumber}}</td>
+				<td (contextmenu)="__elementSelectionService.select('2062917986',$event)" [ngStyle]="__elementSelectionService.getStyles('2062917986')">{{m.PhoneNo}}</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

@@ -1,0 +1,36 @@
+<div class="sidebar">
+  <div class="logo">
+    <a href="https://www.cga.co.ke" class="simple-text logo-normal">
+      <div class="logo-image-normal text-center">
+        <img src="assets/img/cga.png" height="50">
+      </div>
+    </a>
+  </div>
+  <div class="sidebar-wrapper ps overflow-auto">
+    <ul class="nav">
+        <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+            <a  (click)="toggle(menuItem)" [routerLink]="[menuItem.children.length>0? '#' : menuItem.path]">
+                <i class="nc-icon {{menuItem.icon}}"></i>
+                <p>
+                	{{menuItem.title}}
+                	<b *ngIf="menuItem.children.length>0" class="caret"></b>
+                </p>
+            </a>
+            <!-- Sub Menu: Starts -->
+            <div [ngClass]="{'show':menuItem.isOpen}" class="collapse" *ngIf="menuItem.children.length>0">
+				<ul class="nav pl-3">
+					<!---->
+					<li  *ngFor="let subMenuItem of menuItem.children">
+						<a [routerLink]="[subMenuItem.path]">
+							<span class="sidebar-normal">
+								{{subMenuItem.title}}
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- Sub Menu: Ends -->
+		</li>
+    </ul>
+  </div>
+</div>

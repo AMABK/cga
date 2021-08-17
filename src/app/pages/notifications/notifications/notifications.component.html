@@ -1,0 +1,71 @@
+<div class="main-content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card  card-tasks">
+				<div class="card-header ">
+					<h4 class="card-title">Notifications</h4>
+          <div class="form-row">
+            <div class="form-group col-9">
+              <input class="form-control" placeholder="Search {{title}} Here.." [(ngModel)]="filter.term"
+                     (keyup)="($event.keyCode == 13 ? dataService.findByMessageTitle(filter.term) : null)"/>
+            </div>
+            <div class="form-group col-3">
+              <a class="text-success pull-right" rel="tooltip" routerLink="/{{addUrl}}"
+                 [attr.disabled]="false" type="button" data-original-title=""
+                 title="Add new {{object}} to system" >
+                <span><i class="fa fa-plus"></i> &nbsp;Send {{object}}</span>
+              </a>
+            </div>
+          </div>
+				</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-green">
+              <tr>
+                <th class="text-center">#</th>
+                <th>Message Title</th>
+                <th>Recepient</th>
+                <th>Notification Type</th>
+                <th>Status</th>
+                <th class="text-center">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngIf="!rows || rows.length==0">
+                <td class="text-center" colspan="100%">
+                  {{
+                  errorMessage? errorMessage :
+                    ('Search could not find any '+ title.toLowerCase())
+                  }}
+                </td>
+              </tr>
+              <tr template #elseBlock *ngFor="let row of rows | RandomSearch:filter.term;let i=index;">
+                <td class="text-center">{{(i+1) + '.'}}</td>
+                <td>{{row.MessageTitle | uppercase}}</td>
+                <td>{{row.Recipient | uppercase}}</td>
+                <td>{{row.MessageType | uppercase}}</td>
+                <td>{{row.NotificationStatus | uppercase}}</td>
+                <td class="text-right">
+                  <a class="btn btn-success btn-icon btn-sm btn-neutral" rel="tooltip"
+                     data-original-title="" title=""
+                     routerLink="/{{editUrl + row[pk]}}">
+                    <i class="fa fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+				<div class="card-footer ">
+					<hr>
+					<div class="stats">
+						<i class="fa fa-refresh spin"></i> Updated 3 minutes ago
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

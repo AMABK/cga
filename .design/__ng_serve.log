@@ -1,0 +1,18 @@
+
+> cgaimis@1.0.0 ng C:\Innovations\Engineering\cgaimis-frontend
+> ng "s" "__design__" "--port" "5678"
+
+An unhandled exception occurred: Port 5678 is already in use. Use '--port' to specify a different port.
+See "C:\Users\User\AppData\Local\Temp\ng-J0XwwP\angular-errors.log" for further details.
+npm ERR! code ELIFECYCLE
+npm ERR! syscall spawn
+npm ERR! file C:\WINDOWS\system32\cmd.exe
+npm ERR! errno ENOENT
+npm ERR! cgaimis@1.0.0 ng: `ng "s" "__design__" "--port" "5678"`
+npm ERR! spawn ENOENT
+npm ERR! 
+npm ERR! Failed at the cgaimis@1.0.0 ng script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\User\AppData\Roaming\npm-cache\_logs\2021-06-23T14_38_29_980Z-debug.log

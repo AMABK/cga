@@ -1,0 +1,38 @@
+<app-auth-header></app-auth-header>
+<div class="wrapper wrapper-full-page ">
+	<div class="full-page lock-page section-image"
+		data-image="./assets/img/bg/bruno-abatti.jpg" filter-color="black">
+		<div class="content">
+			<div class="container">
+				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+					<form (submit)="onSubmit()" class="form" name="form" [formGroup]="form" novalidate>
+						<div class="card card-lock text-center">
+							<div class="card-header ">
+								<img alt="..." src="{{tokenStorage.getUser().Icon || './assets/img/default-avatar.png'}}">
+							</div>
+							<div class="card-body ">							
+								<h4 class="card-title">{{tokenStorage.getUser().FullName || 'XXXX XXXX'}}</h4>
+								<div class="form-group">
+									<input class="form-control" placeholder="Enter Password.." formControlName="Password" 
+											type="password" [ngClass]="{'is-invalid': submitted && f.Password.errors}"
+											autocomplete="off">
+									<div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+			                            <div *ngIf="f.Password.errors.required">Enter your password here</div>
+			                        </div>
+								</div>
+							</div>
+							<div class="card-footer ">
+								<button type="submit" class="btn btn-outline-default btn-round">
+									Unlock
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<app-auth-footer></app-auth-footer>
+		<div class="full-page-background"
+			style="background-image: url(./assets/img/bg/bruno-abatti.jpg)"></div>
+	</div>
+</div>

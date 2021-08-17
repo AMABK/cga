@@ -1,0 +1,207 @@
+<h3 class="pt-3">{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <h3 class="pt-3">Backgound information</h3>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Name of Farmer</label>
+      <input type="text" formControlName="FarmerName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FarmerName.errors }" uppercase/>
+      <div *ngIf="submitted && f.FarmerName.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerName.errors.required">Farmer Name is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Farmer Phone Number</label>
+      <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="FarmerPhone"
+             type="text" [ngClass]="{'is-invalid': submitted && f.FarmerPhone.errors}"
+             mask="(+000) 000-000000">
+      <div *ngIf="submitted && f.FarmerPhone.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerPhone.errors.required">Farmer Phone number is required</div>
+        <div *ngIf="f.FarmerPhone.errors.minlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.FarmerPhone.errors.maxlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.FarmerPhone.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Group Name</label>
+      <input type="text" formControlName="FarmerGroup" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FarmerGroup.errors }" uppercase/>
+      <div *ngIf="submitted && f.FarmerGroup.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerGroup.errors.required">Group Name is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>County</label>
+      <label>County</label>
+      <select formControlName="County" class="form-control" (change)="onCountyChange($event.target.value)" [ngClass]="{ 'is-invalid': submitted && f.County.errors }">
+        <option *ngFor="let county of countyList" value="{{county.name}}">{{county.name}}</option>
+      </select>
+      <div *ngIf="submitted && f.County.errors" class="invalid-feedback">
+        <div *ngIf="f.County.errors.required">County is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>SubCounty</label>
+      <select formControlName="Subcounty" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Subcounty.errors }">
+        <option value=""></option>
+        <option *ngFor="let subcounty of selectedCounty.sub_counties" value="{{subcounty}}">{{subcounty}}</option>
+      </select>
+      <div *ngIf="submitted && f.Subcounty.errors" class="invalid-feedback">
+        <div *ngIf="f.Subcounty.errors.required">Subcounty is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Ward</label>
+      <input type="text" formControlName="Ward" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Ward.errors }" uppercase/>
+      <div *ngIf="submitted && f.Ward.errors" class="invalid-feedback">
+        <div *ngIf="f.Ward.errors.required">Ward is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label>Agriprenuer</label>
+      <input type="text" formControlName="AgentID" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AgentID.errors }" uppercase/>
+      <div *ngIf="submitted && f.AgentID.errors" class="invalid-feedback">
+        <div *ngIf="f.AgentID.errors.required">Rular Agreprenuer field is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6">
+      <label>Agricoordinator</label>
+      <input type="text" formControlName="AgriBusinessCoordinatorID" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AgriBusinessCoordinatorID.errors }" uppercase/>
+      <div *ngIf="submitted && f.AgriBusinessCoordinatorID.errors" class="invalid-feedback">
+        <div *ngIf="f.AgriBusinessCoordinatorID.errors.required">AgriBusiness Coordinator field is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Crop Type</label>
+      <input type="text" formControlName="CropID" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.CropID.errors }" uppercase/>
+      <div *ngIf="submitted && f.CropID.errors" class="invalid-feedback">
+        <div *ngIf="f.CropID.errors.required">Crop Type is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Demo Treatment</label>
+      <input type="text" formControlName="DemoTreatment" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.DemoTreatment.errors }" uppercase/>
+      <div *ngIf="submitted && f.DemoTreatment.errors" class="invalid-feedback">
+        <div *ngIf="f.DemoTreatment.errors.required">Demo Treatment is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Germination</label>
+      <input type="text" formControlName="GerminationPercent" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.GerminationPercent.errors }" uppercase/>
+      <div *ngIf="submitted && f.GerminationPercent.errors" class="invalid-feedback">
+        <div *ngIf="f.GerminationPercent.errors.required">Germination Percent is required</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3 class="pt-3">Seed Used</h3>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Area Planted</label>
+      <input type="text" formControlName="AreaPlanted" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AreaPlanted.errors }" uppercase/>
+      <div *ngIf="submitted && f.AreaPlanted.errors" class="invalid-feedback">
+        <div *ngIf="f.AreaPlanted.errors.required">Area Planted is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Seed Variety Used</label>
+      <input type="text" formControlName="SeedVarietyUsed" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.SeedVarietyUsed.errors }" uppercase/>
+      <div *ngIf="submitted && f.SeedVarietyUsed.errors" class="invalid-feedback">
+        <div *ngIf="f.SeedVarietyUsed.errors.required">Seed Variety Used is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Seed Quantity Used</label>
+      <input type="number" formControlName="SeedQuantityUsed" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.SeedQuantityUsed.errors }" onlyNumber="true" uppercase/>
+      <div *ngIf="submitted && f.SeedQuantityUsed.errors" class="invalid-feedback">
+        <div *ngIf="f.SeedQuantityUsed.errors.required">Seed Quantity Used is required</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3 class="pt-3">Fertilizer</h3>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label>Fertilizer Type Used</label>
+      <input type="text" formControlName="FertilizerTypeUsed" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FertilizerTypeUsed.errors }" uppercase/>
+      <div *ngIf="submitted && f.FertilizerTypeUsed.errors" class="invalid-feedback">
+        <div *ngIf="f.FertilizerTypeUsed.errors.required">Fertilizer Type Used is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6">
+      <label>Fertilizer Quantity</label>
+      <input type="number" formControlName="FertilizerQuantity" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FertilizerQuantity.errors }" onlyNumber="true" uppercase/>
+      <div *ngIf="submitted && f.FertilizerQuantity.errors" class="invalid-feedback">
+        <div *ngIf="f.FertilizerQuantity.errors.required">Fertilizer Quantity is required</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3 class="pt-3">Harvest Details</h3>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Quantity Harvested</label>
+      <input type="number" formControlName="QuantityHarvested" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.QuantityHarvested.errors }" onlyNumber="true" uppercase/>
+      <div *ngIf="submitted && f.QuantityHarvested.errors" class="invalid-feedback">
+        <div *ngIf="f.QuantityHarvested.errors.required">Quantity Harvested is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Harvest Date</label>
+      <input type="text" formControlName="HarvestDate" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.HarvestDate.errors }" #datepickerYMD="bsDatepicker" 
+			 bsDatepicker  placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY  hh:mm a' }" uppercase/>
+      <div *ngIf="submitted && f.HarvestDate.errors" class="invalid-feedback">
+        <div *ngIf="f.HarvestDate.errors.required">Harvest Date is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Remarks Crop Condition</label>
+      <input type="text" formControlName="RemarksCropCondition" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.RemarksCropCondition.errors }" uppercase/>
+      <div *ngIf="submitted && f.RemarksCropCondition.errors" class="invalid-feedback">
+        <div *ngIf="f.RemarksCropCondition.errors.required">Remarks is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label>Demo Activities Conducted</label>
+      <input type="text" formControlName="DemoActivitiesConducted" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.DemoActivitiesConducted.errors }" uppercase/>
+      <div *ngIf="submitted && f.DemoActivitiesConducted.errors" class="invalid-feedback">
+        <div *ngIf="f.DemoActivitiesConducted.errors.required">Demo Activities Conducted is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link">Cancel</a>
+  </div>
+</form>

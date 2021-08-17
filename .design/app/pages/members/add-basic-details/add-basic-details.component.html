@@ -1,0 +1,3 @@
+<app-add-individual *ngIf="!this.memberType || this.memberType=='individual'" (contextmenu)="__elementSelectionService.select('364181171',$event)" [ngStyle]="__elementSelectionService.getStyles('364181171')"(click)='__elementSelectionService.clear()'></app-add-individual>
+<app-add-group *ngIf="this.memberType=='group'" (contextmenu)="__elementSelectionService.select('1506176709',$event)" [ngStyle]="__elementSelectionService.getStyles('1506176709')"(click)='__elementSelectionService.clear()'></app-add-group>
+<app-add-associate *ngIf="this.memberType=='associate'" (contextmenu)="__elementSelectionService.select('1469731192',$event)" [ngStyle]="__elementSelectionService.getStyles('1469731192')"(click)='__elementSelectionService.clear()'></app-add-associate>

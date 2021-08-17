@@ -1,0 +1,85 @@
+<app-auth-header
+	(contextmenu)="__elementSelectionService.select('2130863658',$event)"
+	[ngStyle]="__elementSelectionService.getStyles('2130863658')"
+	(click)='__elementSelectionService.clear()'></app-auth-header>
+<div class="wrapper wrapper-full-page "
+	(contextmenu)="__elementSelectionService.select('2081975779',$event)"
+	[ngStyle]="__elementSelectionService.getStyles('2081975779')"
+	(click)='__elementSelectionService.clear()'>
+	<div class="full-page lock-page section-image"
+		data-image="./assets/img/bg/bruno-abatti.jpg" filter-color="black"
+		(contextmenu)="__elementSelectionService.select('1017015132',$event)"
+		[ngStyle]="__elementSelectionService.getStyles('1017015132')">
+		<div class="content"
+			(contextmenu)="__elementSelectionService.select('317759213',$event)"
+			[ngStyle]="__elementSelectionService.getStyles('317759213')">
+			<div class="container"
+				(contextmenu)="__elementSelectionService.select('758681125',$event)"
+				[ngStyle]="__elementSelectionService.getStyles('758681125')">
+				<div class="col-lg-4 col-md-6 ml-auto mr-auto"
+					(contextmenu)="__elementSelectionService.select('1979763950',$event)"
+					[ngStyle]="__elementSelectionService.getStyles('1979763950')">
+					<div class="card card-lock text-center"
+						(contextmenu)="__elementSelectionService.select('965447161',$event)"
+						[ngStyle]="__elementSelectionService.getStyles('965447161')">
+						<div class="card-header "
+							(contextmenu)="__elementSelectionService.select('798653395',$event)"
+							[ngStyle]="__elementSelectionService.getStyles('798653395')">
+							<img alt="..."
+								src="{{tokenStorage.getUser().Icon || './assets/img/default-avatar.png'}}"
+								(contextmenu)="__elementSelectionService.select('1178243491',$event)"
+								[ngStyle]="__elementSelectionService.getStyles('1178243491')">
+						</div>
+						<div class="card-body "
+							(contextmenu)="__elementSelectionService.select('908939830',$event)"
+							[ngStyle]="__elementSelectionService.getStyles('908939830')">
+							<form class="form" name="form" [formGroup]="form" novalidate
+								(contextmenu)="__elementSelectionService.select('1403839823',$event)"
+								[ngStyle]="__elementSelectionService.getStyles('1403839823')">
+								<h4 class="card-title"
+									(contextmenu)="__elementSelectionService.select('789862410',$event)"
+									[ngStyle]="__elementSelectionService.getStyles('789862410')">{{tokenStorage.getUser().FullName
+									|| 'XXXX XXXX'}}</h4>
+								<div class="form-group"
+									(contextmenu)="__elementSelectionService.select('1035035586',$event)"
+									[ngStyle]="__elementSelectionService.getStyles('1035035586')">
+									<input class="form-control" placeholder="Enter Password.."
+										formControlName="Password" type="password"
+										[ngClass]="{'is-invalid': submitted &#38;&#38; f.Password.errors}"
+										autocomplete="off"
+										(contextmenu)="__elementSelectionService.select('1641101984',$event)"
+										[ngStyle]="__elementSelectionService.getStyles('1641101984')">
+									<div *ngIf="submitted &#38;&#38; f.Password.errors"
+										class="invalid-feedback"
+										(contextmenu)="__elementSelectionService.select('1440955720',$event)"
+										[ngStyle]="__elementSelectionService.getStyles('1440955720')">
+										<div *ngIf="f.Password.errors.required"
+											(contextmenu)="__elementSelectionService.select('1488645110',$event)"
+											[ngStyle]="__elementSelectionService.getStyles('1488645110')">Enter
+											your password here</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer "
+							(contextmenu)="__elementSelectionService.select('1856187472',$event)"
+							[ngStyle]="__elementSelectionService.getStyles('1856187472')">
+							<button class="btn btn-outline-default btn-round"
+								(click)="onSubmit()"
+								(contextmenu)="__elementSelectionService.select('114237214',$event)"
+								[ngStyle]="__elementSelectionService.getStyles('114237214')">
+								Unlock</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<app-auth-footer
+			(contextmenu)="__elementSelectionService.select('1250585586',$event)"
+			[ngStyle]="__elementSelectionService.getStyles('1250585586')"></app-auth-footer>
+		<div class="full-page-background"
+			style="background-image: url(./assets/img/bg/bruno-abatti.jpg)"
+			(contextmenu)="__elementSelectionService.select('1163975694',$event)"
+			[ngStyle]="__elementSelectionService.getStyles('1163975694')"></div>
+	</div>
+</div>

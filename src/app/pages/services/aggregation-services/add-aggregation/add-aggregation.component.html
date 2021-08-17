@@ -1,0 +1,172 @@
+<h3 class="pt-3">{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label>Aggregation Center</label>
+      <input type="text" formControlName="AggregationCenter" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AggregationCenter.errors }" uppercase/>
+      <div *ngIf="submitted && f.AggregationCenter.errors" class="invalid-feedback">
+        <div *ngIf="f.AggregationCenter.errors.required">Aggregation center is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6">
+      <label>Farmer Organization</label>
+      <input type="text" formControlName="FarmerOrganization" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FarmerOrganization.errors }" uppercase/>
+      <div *ngIf="submitted && f.FarmerOrganization.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerOrganization.errors.required">Farmer organization is required</div>
+      </div>
+    </div>
+  </div>  
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>County</label>
+      <select formControlName="County" class="form-control" (change)="onCountyChange($event.target.value)" [ngClass]="{ 'is-invalid': submitted && f.County.errors }">
+        <option *ngFor="let county of countyList" value="{{county.name}}">{{county.name}}</option>
+      </select>
+      <div *ngIf="submitted && f.County.errors" class="invalid-feedback">
+        <div *ngIf="f.County.errors.required">County is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>SubCounty</label>
+      <select formControlName="Subcounty" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Subcounty.errors }">
+        <option value=""></option>
+        <option *ngFor="let subcounty of selectedCounty.sub_counties" value="{{subcounty}}">{{subcounty}}</option>
+      </select>
+      <div *ngIf="submitted && f.Subcounty.errors" class="invalid-feedback">
+        <div *ngIf="f.Subcounty.errors.required">Subcounty is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Ward</label>
+      <input type="text" formControlName="Ward" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Ward.errors }" uppercase/>
+      <div *ngIf="submitted && f.Ward.errors" class="invalid-feedback">
+        <div *ngIf="f.Ward.errors.required">Ward is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+  	<div class="form-group col-4">
+      <label>Village:</label>
+      <input type="text" formControlName="Village" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Village.errors }" uppercase/>
+      <div *ngIf="submitted && f.Village.errors" class="invalid-feedback">
+        <div *ngIf="f.Village.errors.required">Village is required</div>
+      </div>
+    </div>    
+    <div class="form-group col-4">
+      <label>Agricoordinator</label>
+      <input type="text" formControlName="AgriBusinessCoordinatorID" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AgriBusinessCoordinatorID.errors }" uppercase/>
+      <div *ngIf="submitted && f.AgriBusinessCoordinatorID.errors" class="invalid-feedback">
+        <div *ngIf="f.AgriBusinessCoordinatorID.errors.required">AgriBusiness Coordinator is required</div>
+      </div>
+    </div>    
+    <div class="form-group col-4">
+      <label>Agriprenuer</label>
+      <input type="text" formControlName="AgentID" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AgentID.errors }" uppercase/>
+      <div *ngIf="submitted && f.AgentID.errors" class="invalid-feedback">
+        <div *ngIf="f.AgentID.errors.required">Agreprenuer is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Name of Farmer</label>
+      <input type="text" formControlName="FarmerName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FarmerName.errors }" uppercase/>
+      <div *ngIf="submitted && f.FarmerName.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerName.errors.required">Farmer Name is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Phone Number</label>
+      <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="FarmerPhone"
+             type="text" [ngClass]="{'is-invalid': submitted && f.FarmerPhone.errors}"
+             mask="(+000) 000-000000">
+      <div *ngIf="submitted && f.FarmerPhone.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerPhone.errors.required">Phone number is required</div>
+        <div *ngIf="f.FarmerPhone.errors.minlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.FarmerPhone.errors.maxlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.FarmerPhone.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Gender</label>
+      <div class="input-group">
+        <label class="form-checkbox" *ngFor="let item of constants.genderList; let i=index">
+          <input id="{{GenderMale+i}}" name="FarmerGender" [value]="item.value"
+                 type="radio" formControlName="FarmerGender" [checked]="item.checked"
+                 [ngClass]="{'is-invalid': submitted && f.FarmerGender?.errors}">
+          {{item.name}}
+        </label>
+      </div>
+      <div *ngIf="submitted && f.FarmerGender.errors" class="invalid-option-check">
+        <div *ngIf="f.FarmerGender.errors.required">Gender is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Name of Buyer/Contractor</label>
+      <input type="text" formControlName="NameOfBuyer" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.NameOfBuyer.errors }" uppercase/>
+      <div *ngIf="submitted && f.NameOfBuyer.errors" class="invalid-feedback">
+        <div *ngIf="f.NameOfBuyer.errors.required">Name of buyer is required</div>
+      </div>
+    </div>    
+    <div class="form-group col-4">
+      <label>Crop</label>
+      <input type="text" formControlName="Crop" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Crop.errors }" uppercase/>
+      <div *ngIf="submitted && f.Crop.errors" class="invalid-feedback">
+        <div *ngIf="f.Crop.errors.required">Crop is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Aggregation Date</label>
+      <input type="text" formControlName="AggregationDate" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AggregationDate.errors }" 
+			#datepickerYMD="bsDatepicker" bsDatepicker  placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY  hh:mm a' }"/>
+      <div *ngIf="submitted && f.AggregationDate.errors" class="invalid-feedback">
+        <div *ngIf="f.AggregationDate.errors.required">Aggregation date is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+  	<div class="form-group col-4">
+      <label>Quantity</label>
+      <input type="number" formControlName="Quantity" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Quantity.errors }" onlyNumber="true" uppercase/>
+      <div *ngIf="submitted && f.Quantity.errors" class="invalid-feedback">
+        <div *ngIf="f.Quantity.errors.required">Quantity is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Unit Price</label>
+      <input type="number" formControlName="Price" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Price.errors }" onlyNumber="true" uppercase/>
+      <div *ngIf="submitted && f.Price.errors" class="invalid-feedback">
+        <div *ngIf="f.Price.errors.required">Unit price is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Commission</label>
+      <input type="number" formControlName="Commission" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Commission.errors }" onlyNumber="true" uppercase/>
+      <div *ngIf="submitted && f.Commission.errors" class="invalid-feedback">
+        <div *ngIf="f.Commission.errors.required">Commission is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link">Cancel</a>
+  </div>
+</form>

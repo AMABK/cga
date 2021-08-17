@@ -1,0 +1,91 @@
+<div class="main-content" (contextmenu)="__elementSelectionService.select('342063240',$event)" [ngStyle]="__elementSelectionService.getStyles('342063240')"(click)='__elementSelectionService.clear()'>
+	<div class="row" (contextmenu)="__elementSelectionService.select('1055837616',$event)" [ngStyle]="__elementSelectionService.getStyles('1055837616')">
+		<div class="col-md-12" (contextmenu)="__elementSelectionService.select('774381688',$event)" [ngStyle]="__elementSelectionService.getStyles('774381688')">
+			<div class="card" (contextmenu)="__elementSelectionService.select('553695757',$event)" [ngStyle]="__elementSelectionService.getStyles('553695757')">
+				<div class="card-header" (contextmenu)="__elementSelectionService.select('1764909845',$event)" [ngStyle]="__elementSelectionService.getStyles('1764909845')">
+					<h3 class="card-title" (contextmenu)="__elementSelectionService.select('570007758',$event)" [ngStyle]="__elementSelectionService.getStyles('570007758')">
+						{{title}}						
+					</h3>
+					<div class="form-row" (contextmenu)="__elementSelectionService.select('1321037673',$event)" [ngStyle]="__elementSelectionService.getStyles('1321037673')">
+						<div class="form-group col-5" (contextmenu)="__elementSelectionService.select('1791583329',$event)" [ngStyle]="__elementSelectionService.getStyles('1791583329')">
+							<select [(ngModel)]="filter.ProgrammeID" class="form-control" (change)="fetchData()" (contextmenu)="__elementSelectionService.select('270112998',$event)" [ngStyle]="__elementSelectionService.getStyles('270112998')">
+							    <option value (contextmenu)="__elementSelectionService.select('2081076731',$event)" [ngStyle]="__elementSelectionService.getStyles('2081076731')">All Programmes</option>
+							    <option *ngFor="let programme of programmes" value="{{programme.ProgrammeID}}" (contextmenu)="__elementSelectionService.select('1500072756',$event)" [ngStyle]="__elementSelectionService.getStyles('1500072756')">
+							    	{{programme.ProgrammeName}}
+							    </option>
+							</select>
+						</div>
+						<div class="form-group col-2" (contextmenu)="__elementSelectionService.select('2015544852',$event)" [ngStyle]="__elementSelectionService.getStyles('2015544852')">
+							<select [(ngModel)]="filter.Year" class="form-control" (change)="fetchData()" (contextmenu)="__elementSelectionService.select('606121822',$event)" [ngStyle]="__elementSelectionService.getStyles('606121822')">								
+							    <option *ngFor="let year of functions.getYearsBefore(5)" value="{{year}}" (contextmenu)="__elementSelectionService.select('221012812',$event)" [ngStyle]="__elementSelectionService.getStyles('221012812')">{{year}}</option>
+							</select>
+						</div>
+						<div class="form-group col-5" (contextmenu)="__elementSelectionService.select('504342838',$event)" [ngStyle]="__elementSelectionService.getStyles('504342838')">
+							<input class="form-control" placeholder="Search for indicators Here.." [(ngModel)]="filter.IndicatorName" (keyup)="($event.keyCode == 13 ? fetchData() : null)" (contextmenu)="__elementSelectionService.select('1895026309',$event)" [ngStyle]="__elementSelectionService.getStyles('1895026309')">
+						</div>
+					</div>
+				</div>
+				<div class="card-body text-center mt-5 mb-5" *ngIf="loading || !rows || rows.length==0" (contextmenu)="__elementSelectionService.select('1367917978',$event)" [ngStyle]="__elementSelectionService.getStyles('1367917978')">
+					<div *ngIf="!loading" (contextmenu)="__elementSelectionService.select('1062271716',$event)" [ngStyle]="__elementSelectionService.getStyles('1062271716')">
+						{{
+							errorMessage? errorMessage :
+							('Search could not find any '+ title.toLowerCase() + ' records')
+						}}	
+					</div>
+					<div *ngIf="loading" (contextmenu)="__elementSelectionService.select('1559605793',$event)" [ngStyle]="__elementSelectionService.getStyles('1559605793')">
+						<span class="spinner-border spinner-border-sm" (contextmenu)="__elementSelectionService.select('849139932',$event)" [ngStyle]="__elementSelectionService.getStyles('849139932')"></span>
+						Processing data..please wait...
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" *ngFor="let row of rows; let i = index;" (contextmenu)="__elementSelectionService.select('623869696',$event)" [ngStyle]="__elementSelectionService.getStyles('623869696')">  
+	  <div class="col-md-12" *ngIf="row?.IndicatorNames &#38;&#38; row.IndicatorNames.length&#62;0;" (contextmenu)="__elementSelectionService.select('495990427',$event)" [ngStyle]="__elementSelectionService.getStyles('495990427')">
+	    <div class="card" (contextmenu)="__elementSelectionService.select('1812331442',$event)" [ngStyle]="__elementSelectionService.getStyles('1812331442')">
+	      <div class="card-body " (contextmenu)="__elementSelectionService.select('940283094',$event)" [ngStyle]="__elementSelectionService.getStyles('940283094')">        
+			<table class="table" (contextmenu)="__elementSelectionService.select('1711422376',$event)" [ngStyle]="__elementSelectionService.getStyles('1711422376')">
+				<thead class="text-green" (contextmenu)="__elementSelectionService.select('2050682141',$event)" [ngStyle]="__elementSelectionService.getStyles('2050682141')">
+					<tr (contextmenu)="__elementSelectionService.select('966869379',$event)" [ngStyle]="__elementSelectionService.getStyles('966869379')">
+						<th (contextmenu)="__elementSelectionService.select('1567153989',$event)" [ngStyle]="__elementSelectionService.getStyles('1567153989')">#</th>
+						<th (contextmenu)="__elementSelectionService.select('708862011',$event)" [ngStyle]="__elementSelectionService.getStyles('708862011')">{{row.Description}}</th>
+						<th class="text-right" width="200" (contextmenu)="__elementSelectionService.select('121582187',$event)" [ngStyle]="__elementSelectionService.getStyles('121582187')">{{filter.Year? filter.Year-1 : 'Previous'}} Achievement</th>	
+						<th class="text-right" width="150" (contextmenu)="__elementSelectionService.select('874628694',$event)" [ngStyle]="__elementSelectionService.getStyles('874628694')">Target {{filter?.Year}}</th>								
+						<th class="text-right" width="150" (contextmenu)="__elementSelectionService.select('791197024',$event)" [ngStyle]="__elementSelectionService.getStyles('791197024')">Achieved {{filter?.Year}}</th>
+						<th class="text-right" width="150" (contextmenu)="__elementSelectionService.select('104876294',$event)" [ngStyle]="__elementSelectionService.getStyles('104876294')">% Achieved</th>					
+					</tr>								
+				</thead>
+	        	<tbody (contextmenu)="__elementSelectionService.select('2014482383',$event)" [ngStyle]="__elementSelectionService.getStyles('2014482383')">	        		
+					<tr *ngFor="let IndicatorName of row.IndicatorNames | 
+						RandomSearch:filter.IndicatorName; let i=index;" (contextmenu)="__elementSelectionService.select('1119614445',$event)" [ngStyle]="__elementSelectionService.getStyles('1119614445')">
+							<td (contextmenu)="__elementSelectionService.select('676514671',$event)" [ngStyle]="__elementSelectionService.getStyles('676514671')">{{(i+1) + '.'}}</td>
+							<td (contextmenu)="__elementSelectionService.select('744406810',$event)" [ngStyle]="__elementSelectionService.getStyles('744406810')">{{IndicatorName || '-'}}</td>
+							<td class="text-right" (contextmenu)="__elementSelectionService.select('1079910825',$event)" [ngStyle]="__elementSelectionService.getStyles('1079910825')">
+								{{(row.Previous[IndicatorName]?.Achievement | number:0) || '-'}}
+							</td>
+							<td class="text-right" (contextmenu)="__elementSelectionService.select('1574412498',$event)" [ngStyle]="__elementSelectionService.getStyles('1574412498')">
+								{{(row.Current[IndicatorName]?.Target | number:0) || '-'}}
+							</td>
+							<td class="text-right" (contextmenu)="__elementSelectionService.select('1667236276',$event)" [ngStyle]="__elementSelectionService.getStyles('1667236276')">
+								{{(row.Current[IndicatorName]?.Achievement | number:0) || '-'}}
+							</td>
+							<td class="text-right" (contextmenu)="__elementSelectionService.select('975160493',$event)" [ngStyle]="__elementSelectionService.getStyles('975160493')">								
+								<span *ngIf="row.Current[IndicatorName].QualitativeQuantitative=='QN' 
+									&#38;&#38; row.Current[IndicatorName].Target &#38;&#38; row.Current[IndicatorName].Achievement
+									&#38;&#38; row.Current[IndicatorName].Target&#62;0" (contextmenu)="__elementSelectionService.select('201189678',$event)" [ngStyle]="__elementSelectionService.getStyles('201189678')">
+									{{(current[IndicatorName]?.Achievement/current[IndicatorName]?.Target)*100 | number:0}}
+								</span>							
+								<span #elseBlock (contextmenu)="__elementSelectionService.select('1800145331',$event)" [ngStyle]="__elementSelectionService.getStyles('1800145331')">
+									{{row.Current[IndicatorName].QualitativeQuantitative=='QN'? row.Current[IndicatorName]?.Achievement : '-'}}
+								</span>
+							</td>
+					</tr>
+	        	</tbody>
+	        </table>
+	      </div>
+	    </div>
+	  </div>
+ 	</div>
+ 	
+ </div>

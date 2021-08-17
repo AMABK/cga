@@ -1,0 +1,85 @@
+<div class="main-content" (contextmenu)="__elementSelectionService.select('589703671',$event)" [ngStyle]="__elementSelectionService.getStyles('589703671')"(click)='__elementSelectionService.clear()'>
+	<div class="row" (contextmenu)="__elementSelectionService.select('1969504647',$event)" [ngStyle]="__elementSelectionService.getStyles('1969504647')">
+		<div class="col-md-12" (contextmenu)="__elementSelectionService.select('313030798',$event)" [ngStyle]="__elementSelectionService.getStyles('313030798')">
+			<div class="card" (contextmenu)="__elementSelectionService.select('5472957',$event)" [ngStyle]="__elementSelectionService.getStyles('5472957')">
+				<div class="card-header" (contextmenu)="__elementSelectionService.select('1626566437',$event)" [ngStyle]="__elementSelectionService.getStyles('1626566437')">
+					<h3 class="card-title" (contextmenu)="__elementSelectionService.select('936141509',$event)" [ngStyle]="__elementSelectionService.getStyles('936141509')">
+						{{title}}						
+					</h3>
+					<div class="form-row" (contextmenu)="__elementSelectionService.select('1727074490',$event)" [ngStyle]="__elementSelectionService.getStyles('1727074490')">
+						<div class="form-group col-4" (contextmenu)="__elementSelectionService.select('2058035379',$event)" [ngStyle]="__elementSelectionService.getStyles('2058035379')">
+							<label (contextmenu)="__elementSelectionService.select('22737540',$event)" [ngStyle]="__elementSelectionService.getStyles('22737540')">Search By Programme</label>
+							<select [(ngModel)]="filter.ProgrammeID" class="form-control" (change)="fetchKpi()" (contextmenu)="__elementSelectionService.select('1431597600',$event)" [ngStyle]="__elementSelectionService.getStyles('1431597600')">
+							    <option *ngFor="let programme of programmes" value="{{programme.ProgrammeID}}" (contextmenu)="__elementSelectionService.select('995020016',$event)" [ngStyle]="__elementSelectionService.getStyles('995020016')">
+							    	{{programme.ProgrammeName}}
+							    </option>
+							</select>
+						</div>
+						<div class="form-group col-1" (contextmenu)="__elementSelectionService.select('407100818',$event)" [ngStyle]="__elementSelectionService.getStyles('407100818')">
+							<label (contextmenu)="__elementSelectionService.select('1323029196',$event)" [ngStyle]="__elementSelectionService.getStyles('1323029196')">Year</label>
+							<select [(ngModel)]="filter.Year" class="form-control pl-1 pr-0" (change)="fetchKpi()" (contextmenu)="__elementSelectionService.select('954760261',$event)" [ngStyle]="__elementSelectionService.getStyles('954760261')">
+							    <option *ngFor="let year of functions.getYearsBefore(5)" value="{{year}}" (contextmenu)="__elementSelectionService.select('1972117220',$event)" [ngStyle]="__elementSelectionService.getStyles('1972117220')">{{year}}</option>
+							</select>
+						</div>
+						<div class="form-group col-3" (contextmenu)="__elementSelectionService.select('1940255370',$event)" [ngStyle]="__elementSelectionService.getStyles('1940255370')">
+							<label (contextmenu)="__elementSelectionService.select('1677202304',$event)" [ngStyle]="__elementSelectionService.getStyles('1677202304')">Filter By Activity Name</label>
+							<select [(ngModel)]="filter.ActivityID" class="form-control" (contextmenu)="__elementSelectionService.select('411652590',$event)" [ngStyle]="__elementSelectionService.getStyles('411652590')">
+								<option value (contextmenu)="__elementSelectionService.select('233244453',$event)" [ngStyle]="__elementSelectionService.getStyles('233244453')">All</option>
+							    <option *ngFor="let activity of activities" value="{{activity.ActivityID}}" (contextmenu)="__elementSelectionService.select('1359644081',$event)" [ngStyle]="__elementSelectionService.getStyles('1359644081')">
+							    	{{activity.ActivityName}}
+							    </option>
+							</select>
+						</div>
+						<div class="form-group col-4" (contextmenu)="__elementSelectionService.select('1917712387',$event)" [ngStyle]="__elementSelectionService.getStyles('1917712387')">
+							<label class="invisible" (contextmenu)="__elementSelectionService.select('546951557',$event)" [ngStyle]="__elementSelectionService.getStyles('546951557')">Action</label>
+							<div class="form-inline pull-right" (contextmenu)="__elementSelectionService.select('368194716',$event)" [ngStyle]="__elementSelectionService.getStyles('368194716')">
+								<button [disabled]="!filter.ProgrammeID || !filter.Year" class="btn btn-primary mt-1 mb-0" (click)="updateKpis()" (contextmenu)="__elementSelectionService.select('282074270',$event)" [ngStyle]="__elementSelectionService.getStyles('282074270')">
+									<span *ngIf="loading" class="spinner-border spinner-border-sm" (contextmenu)="__elementSelectionService.select('222327655',$event)" [ngStyle]="__elementSelectionService.getStyles('222327655')"></span>
+							      Update All
+							    </button>
+						    </div>
+						</div>
+					</div>
+				</div>
+				<div class="card-body" (contextmenu)="__elementSelectionService.select('1664851635',$event)" [ngStyle]="__elementSelectionService.getStyles('1664851635')">
+					<div (contextmenu)="__elementSelectionService.select('1743327388',$event)" [ngStyle]="__elementSelectionService.getStyles('1743327388')">
+						<table class="table" (contextmenu)="__elementSelectionService.select('2001589267',$event)" [ngStyle]="__elementSelectionService.getStyles('2001589267')">
+							<thead class="text-green" (contextmenu)="__elementSelectionService.select('2040023766',$event)" [ngStyle]="__elementSelectionService.getStyles('2040023766')">
+								<tr (contextmenu)="__elementSelectionService.select('1189711184',$event)" [ngStyle]="__elementSelectionService.getStyles('1189711184')">
+									<th (contextmenu)="__elementSelectionService.select('1764428001',$event)" [ngStyle]="__elementSelectionService.getStyles('1764428001')">#</th>
+									<th (contextmenu)="__elementSelectionService.select('1893704859',$event)" [ngStyle]="__elementSelectionService.getStyles('1893704859')">Activity Name</th>
+									<th (contextmenu)="__elementSelectionService.select('1269472940',$event)" [ngStyle]="__elementSelectionService.getStyles('1269472940')">Indicator</th>	
+									<th (contextmenu)="__elementSelectionService.select('1101203844',$event)" [ngStyle]="__elementSelectionService.getStyles('1101203844')">Unit</th>								
+									<th (contextmenu)="__elementSelectionService.select('1895722321',$event)" [ngStyle]="__elementSelectionService.getStyles('1895722321')">Target</th>
+									<th (contextmenu)="__elementSelectionService.select('2106123433',$event)" [ngStyle]="__elementSelectionService.getStyles('2106123433')">Achievement</th>				
+								</tr>								
+							</thead>
+							<tbody (contextmenu)="__elementSelectionService.select('1648908874',$event)" [ngStyle]="__elementSelectionService.getStyles('1648908874')">
+								<tr *ngIf="!rows || rows.length==0" (contextmenu)="__elementSelectionService.select('1006538926',$event)" [ngStyle]="__elementSelectionService.getStyles('1006538926')">
+									<td class="text-center" colspan="100%" (contextmenu)="__elementSelectionService.select('954852965',$event)" [ngStyle]="__elementSelectionService.getStyles('954852965')">
+										{{
+											errorMessage? errorMessage :
+											('Search could not find any '+ title.toLowerCase() + ' records')
+										}}										
+									</td>
+								</tr>
+								<tr template #elseBlock *ngFor="let row of rows 
+									| KeyFilter:'ActivityID':filter.ActivityID
+									let i=index;" (contextmenu)="__elementSelectionService.select('50262141',$event)" [ngStyle]="__elementSelectionService.getStyles('50262141')">
+									<td (contextmenu)="__elementSelectionService.select('574906466',$event)" [ngStyle]="__elementSelectionService.getStyles('574906466')">{{(i+1) + '.'}}</td>
+									<td (contextmenu)="__elementSelectionService.select('1844510564',$event)" [ngStyle]="__elementSelectionService.getStyles('1844510564')">{{row?.ActivityName || '-'}}</td>
+									<td (contextmenu)="__elementSelectionService.select('450754161',$event)" [ngStyle]="__elementSelectionService.getStyles('450754161')">{{row?.IndicatorName || '-'}}</td>
+									<td (contextmenu)="__elementSelectionService.select('1867878479',$event)" [ngStyle]="__elementSelectionService.getStyles('1867878479')">{{row?.MeasurementUnit || '-'}}</td>
+									<td (contextmenu)="__elementSelectionService.select('1846786743',$event)" [ngStyle]="__elementSelectionService.getStyles('1846786743')">{{row?.Target || '-'}}</td>
+									<td (contextmenu)="__elementSelectionService.select('74609614',$event)" [ngStyle]="__elementSelectionService.getStyles('74609614')">
+										<input class="form-control" type="text" [(ngModel)]="row.Achievement" onReturn onlyNumber="{{row.QualitativeQuantitative=='QN'}}" placeholder="Achievement" [disabled]="!filter.ProgrammeID || !filter.Year || !row[pk]" (contextmenu)="__elementSelectionService.select('1911124815',$event)" [ngStyle]="__elementSelectionService.getStyles('1911124815')">
+									</td>	
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

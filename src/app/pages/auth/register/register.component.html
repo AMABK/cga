@@ -1,0 +1,129 @@
+<app-auth-header></app-auth-header>
+<div class="wrapper wrapper-full-page ">
+	<div class="full-page register-page section-image"
+		data-image="../assets/img/bg/jan-sendereks.jpg" filter-color="black">
+		<div class="content">
+			<div class="container mt-0">
+				<div class="row">
+					<div class="col-lg-5 col-md-5 ml-auto">
+						<div class="info-area info-horizontal mt-0">
+							<div class="icon icon-primary">
+								<i class="nc-icon nc-circle-10"></i>
+							</div>
+							<div class="description">
+								<h5 class="info-title">Farmer Representation</h5>
+								<p class="description">We engage the Government on behalf of its farmer members in a bid to ensure that we have favorable and sustainable agricultural policies.</p>
+							</div>
+						</div>
+						<div class="info-area info-horizontal">
+							<div class="icon icon-primary">
+								<i class="nc-icon nc-html5"></i>
+							</div>
+							<div class="description">
+								<h5 class="info-title">Training, Research &amp; Advisory</h5>
+								<p class="description">We offer extension and advisory services to farmers through the establishment of learning centers and demo farms.
+								</p>
+							</div>
+						</div>
+						<div class="info-area info-horizontal">
+							<div class="icon icon-info">
+								<i class="nc-icon nc-atom"></i>
+							</div>
+							<div class="description">
+								<h5 class="info-title">Farmer Linkage Services</h5>
+								<p class="description">
+									We play the critical role of linking farmers with the following services.									
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 mr-auto">
+						<form (submit)="onSubmit()" class="form" name="form" [formGroup]="form" novalidate>
+							<div class="card card-signup text-center">
+								<div class="card-header pt-0">
+									<h4 class="card-title">Account Signup</h4>
+									<div class="social">
+										<p class="card-description">Enter details below to register as a member</p>
+									</div>							
+								</div>
+								<div class="card-body pt-0">								
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i
+												class="nc-icon nc-single-02"></i></span>
+										</div>
+										<input class="form-control" placeholder="Name..." formControlName="FullName" 
+											type="text" [ngClass]="{'is-invalid': submitted && f.FullName.errors}">
+										<div *ngIf="submitted && f.FullName.errors" class="invalid-feedback text-left">
+				                            <div *ngIf="f.FullName.errors.required">Enter your full name is required</div>
+				                        </div>
+									</div>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i
+												class="nc-icon nc-circle-10"></i></span>
+										</div>
+										<input class="form-control" placeholder="Phone..." formControlName="PhoneNo" 
+											type="text" [ngClass]="{'is-invalid': submitted && f.PhoneNo.errors}"
+											mask="(+000) 000-000000">
+										<div *ngIf="submitted && f.PhoneNo.errors" class="invalid-feedback text-left">
+				                            <div *ngIf="f.PhoneNo.errors.required">Phone number is required</div>
+				                            <div *ngIf="f.PhoneNo.errors.minlength">Must be equal to 12 character(s)</div>
+                							<div *ngIf="f.PhoneNo.errors.maxlength">Must be equal to 12 character(s)</div>
+				                            <div *ngIf="f.PhoneNo.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+				                        </div>
+									</div>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i
+												class="nc-icon nc-email-85"></i></span>
+										</div>
+										<input class="form-control" placeholder="Email..." formControlName="email" 
+											type="email" [ngClass]="{'is-invalid': submitted && f.email.errors}">
+										<div *ngIf="submitted && f.email.errors" class="invalid-feedback text-left">
+				                            <div *ngIf="f.email.errors.required">Email address is required</div>
+				                            <div *ngIf="f.email.errors.pattern">Incorrect! use format e.g. aa@abc.com</div>				                            
+				                        </div>
+									</div>									
+									<div class="input-group">Choose where to receive credentials</div>
+									<div class="input-group">
+										<label class="form-checkbox">
+											<input id="ChannelSms" name="Channel" value="sms"
+												type="radio" formControlName="Channel"
+												[ngClass]="{'is-invalid': submitted && f.Channel.errors}">
+											 Sms
+										</label>
+										<label class="form-checkbox">
+											<input id="ChannelEmail" name="Channel" 
+												value="email" type="radio" formControlName="Channel"
+												[ngClass]="{'is-invalid': submitted && f.Channel.errors}">
+											 Email
+										</label>
+									</div>
+									<div *ngIf="submitted && f.Channel.errors" class="invalid-option-check text-left">
+			                            <div *ngIf="f.Channel.errors.required">Choose your password reset method</div>
+			                        </div>
+									<div class="form-check text-left">
+										<label class="form-check-label">
+											<input checked="" class="form-check-input" type="checkbox">
+											<span class="form-check-sign"></span> 
+											I agree to the <a href="#/">terms and conditions</a>. 
+										</label>
+									</div>
+								</div>
+								<div class="card-footer mt-0">
+									<button type="submit" class="btn btn-info btn-round">
+										Register
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<app-auth-footer></app-auth-footer>
+		<div class="full-page-background"
+			style="background-image: url(./assets/img/bg/jan-sendereks.jpg)"></div>
+	</div>
+</div>

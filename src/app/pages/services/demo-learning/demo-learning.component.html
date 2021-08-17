@@ -1,0 +1,93 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">
+            {{title}}
+          </h3>
+          <div class="form-row">
+            <div class="form-group col-9">
+              <input class="form-control" placeholder="Search {{title}} Here.." [(ngModel)]="filter.term"
+                     (keyup)="($event.keyCode == 13 ? dataService.findByName(filter.term) : null)"/>
+            </div>
+            <div class="form-group col-3">
+              <a class="text-success pull-right" rel="tooltip" routerLink="/{{addUrl}}"
+                 type="button" data-original-title=""
+                 title="Add new {{object}} to system" >
+                <span><i class="fa fa-plus"></i> &nbsp;Add {{object}}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-green">
+              <tr>
+                <th class="text-center">#</th>
+                <th>Farmer Name</th>
+                <th>Phone</th>
+                <th>County</th>
+                <th>Ward</th>
+                <th>Crop Type</th>
+                <th>Demo Treatment</th>
+                <th>Germination %</th>
+                <th>Area Planted</th>
+                <th>Seed Variety</th>
+                <th>Seed Quantity</th>
+                <th>Fertilizer Type</th>
+                <th>Fertilizer Quantity</th>
+                <th>Harvest Date</th>
+                <th>Quantity Harvested</th>
+                <th class="text-right">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngIf="!rows || rows.length==0">
+                <td class="text-center" colspan="100%">
+                  {{
+                  errorMessage? errorMessage :
+                    ('Search could not find any '+ title.toLowerCase())
+                  }}
+                </td>
+              </tr>
+              <tr template #elseBlock *ngFor="let row of rows | RandomSearch:filter.term;let i=index;">
+                <td class="text-center">{{(i+1) + '.'}}</td>
+                <td>{{row.FarmerName | uppercase}}</td>
+                <td>{{row.FarmerPhone  | mask:'+000 000 000 000'}}</td>
+                <td>{{row.County | uppercase}}</td>
+                <td>{{row.Ward | uppercase}}</td>
+                <td>{{row.CropID | uppercase}}</td>
+                <td>{{row.DemoTreatment | uppercase}}</td>
+                <td>{{row.GerminationPercent | number:0}}%</td>
+                <td>{{row.AreaPlanted | uppercase}}</td>
+                <td>{{row.SeedVarietyUsed | uppercase}}</td>
+                <td>{{row.SeedQuantityUsed | number:0}}</td>
+                <td>{{row.FertilizerTypeUsed | uppercase}}</td>
+                <td>{{row.FertilizerQuantity | number:0}}</td>
+                <td>{{row?.HarvestDate | date:'dd-MMM-yyyy'}}</td>
+                <td>{{row.QuantityHarvested | number:0}}</td>
+                <td class="text-right">
+                  <a class="btn btn-success btn-icon btn-sm btn-neutral" rel="tooltip"
+                     data-original-title="" title=""
+                     routerLink="/{{editUrl + row[pk]}}">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                  <button class="btn btn-danger btn-icon btn-sm btn-neutral" rel="tooltip"
+                          [disabled]="row.isDeleting" type="button" data-original-title=""
+                          title="" (click)="deleteRow(row)">
+                    <span *ngIf="row.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!row.isDeleting"><i class="fa fa-times"></i></span>
+                  </button>
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

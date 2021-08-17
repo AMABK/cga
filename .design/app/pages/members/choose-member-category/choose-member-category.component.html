@@ -1,0 +1,27 @@
+<form [formGroup]="form" (contextmenu)="__elementSelectionService.select('1425627159',$event)" [ngStyle]="__elementSelectionService.getStyles('1425627159')"(click)='__elementSelectionService.clear()'>   
+	<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('1542333627',$event)" [ngStyle]="__elementSelectionService.getStyles('1542333627')">
+		<div class="col-sm-12" (contextmenu)="__elementSelectionService.select('1530302477',$event)" [ngStyle]="__elementSelectionService.getStyles('1530302477')">
+			<h5 class="info-text" (contextmenu)="__elementSelectionService.select('1158763164',$event)" [ngStyle]="__elementSelectionService.getStyles('1158763164')">What is your prefered member category?</h5>
+		</div>
+	</div> 
+	<table class="table table-hover" (contextmenu)="__elementSelectionService.select('469618515',$event)" [ngStyle]="__elementSelectionService.getStyles('469618515')">
+		<thead class="text-green" (contextmenu)="__elementSelectionService.select('832367467',$event)" [ngStyle]="__elementSelectionService.getStyles('832367467')">
+			<tr (contextmenu)="__elementSelectionService.select('1581622189',$event)" [ngStyle]="__elementSelectionService.getStyles('1581622189')">
+				<th (contextmenu)="__elementSelectionService.select('294625099',$event)" [ngStyle]="__elementSelectionService.getStyles('294625099')">#</th>
+				<th (contextmenu)="__elementSelectionService.select('1685933438',$event)" [ngStyle]="__elementSelectionService.getStyles('1685933438')">Member Category</th>
+				<th (contextmenu)="__elementSelectionService.select('845952297',$event)" [ngStyle]="__elementSelectionService.getStyles('845952297')">Reg.Fees</th>
+				<th (contextmenu)="__elementSelectionService.select('1095217154',$event)" [ngStyle]="__elementSelectionService.getStyles('1095217154')">Description</th>
+			</tr>
+		</thead>
+		<tbody (contextmenu)="__elementSelectionService.select('744430246',$event)" [ngStyle]="__elementSelectionService.getStyles('744430246')">
+			<tr *ngFor="let c of memberCategories | RandomSearch:memberService.formValues.TypeID; let i=index" (click)="selectOption(c.CategoryID)" class="cursor {{(c.CategoryID==selected.CategoryID)? 'bg-grey' : ''}}" (contextmenu)="__elementSelectionService.select('583509230',$event)" [ngStyle]="__elementSelectionService.getStyles('583509230')">
+				<td (contextmenu)="__elementSelectionService.select('1909528802',$event)" [ngStyle]="__elementSelectionService.getStyles('1909528802')">
+					<input id="{{CategoryID+i}}" name="CategoryID" [value]="c.CategoryID" type="radio" formControlName="CategoryID" [checked]="(c.CategoryID==selected.CategoryID)" [ngClass]="{'is-invalid': submitted &#38;&#38; f.CategoryID?.errors}" (contextmenu)="__elementSelectionService.select('233464186',$event)" [ngStyle]="__elementSelectionService.getStyles('233464186')">
+				</td>
+				<td (contextmenu)="__elementSelectionService.select('1496629323',$event)" [ngStyle]="__elementSelectionService.getStyles('1496629323')">{{c.Name}}</td>
+				<td (contextmenu)="__elementSelectionService.select('1187774295',$event)" [ngStyle]="__elementSelectionService.getStyles('1187774295')">{{c.Fees | number:0}}</td>
+				<td (contextmenu)="__elementSelectionService.select('1067772260',$event)" [ngStyle]="__elementSelectionService.getStyles('1067772260')">{{c.Description}}</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

@@ -1,0 +1,51 @@
+<h3 class="pt-3">{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label>Manager</label>
+      <select formControlName="ManagerID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ManagerID.errors }">
+        <option *ngFor="let manager of userManagers"  value="{{manager.id}}">{{manager.FullName}}</option>
+      </select>
+      <div *ngIf="submitted && f.ManagerID.errors" class="invalid-feedback">
+        <div *ngIf="f.ManagerID.errors.required">Manager field is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6">
+      <label>Programme</label>
+      <input type="text" formControlName="ProgrammeName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.ProgrammeName.errors }" uppercase/>
+      <div *ngIf="submitted && f.ProgrammeName.errors" class="invalid-feedback">
+        <div *ngIf="f.ProgrammeName.errors.required">Programme is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label>Start Date</label>
+      <input class="form-control" #datepickerYMD="bsDatepicker" bsDatepicker
+             formControlName="StartDate" placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY' }"
+             [ngClass]="{ 'is-invalid': submitted && f.StartDate.errors }" (bsValueChange)="onDateChange($event)">
+
+      <div *ngIf="submitted && f.StartDate.errors" class="invalid-feedback">
+        <div *ngIf="f.StartDate.errors.required">Start date is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6">
+      <label>End Date</label>
+      <input class="form-control" #datepickerYMD="bsDatepicker" bsDatepicker
+             formControlName="EndDate"  placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY' }"
+             [ngClass]="{ 'is-invalid': submitted && f.EndDate.errors }" (bsValueChange)="onDateChange($event)">
+
+      <div *ngIf="submitted && f.EndDate.errors" class="invalid-feedback">
+        <div *ngIf="f.EndDate.errors.required">End date is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link">Cancel</a>
+  </div>
+</form>

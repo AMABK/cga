@@ -1,0 +1,106 @@
+<div class="main-content" (contextmenu)="__elementSelectionService.select('1670339706',$event)" [ngStyle]="__elementSelectionService.getStyles('1670339706')"(click)='__elementSelectionService.clear()'>
+  <div class="row" (contextmenu)="__elementSelectionService.select('1877988802',$event)" [ngStyle]="__elementSelectionService.getStyles('1877988802')">
+    <div class="col-md-12" (contextmenu)="__elementSelectionService.select('1981429961',$event)" [ngStyle]="__elementSelectionService.getStyles('1981429961')">
+      <div class="card" (contextmenu)="__elementSelectionService.select('799387033',$event)" [ngStyle]="__elementSelectionService.getStyles('799387033')">
+        <div class="card-header" (contextmenu)="__elementSelectionService.select('888207892',$event)" [ngStyle]="__elementSelectionService.getStyles('888207892')">
+          <h3 class="pt-3" (contextmenu)="__elementSelectionService.select('631273613',$event)" [ngStyle]="__elementSelectionService.getStyles('631273613')">{{title}}</h3>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" (contextmenu)="__elementSelectionService.select('39571584',$event)" [ngStyle]="__elementSelectionService.getStyles('39571584')">
+            <div class="form-row" (contextmenu)="__elementSelectionService.select('1080375',$event)" [ngStyle]="__elementSelectionService.getStyles('1080375')">
+              <div class="form-group col-2" (contextmenu)="__elementSelectionService.select('864228987',$event)" [ngStyle]="__elementSelectionService.getStyles('864228987')">
+                <label (contextmenu)="__elementSelectionService.select('364995734',$event)" [ngStyle]="__elementSelectionService.getStyles('364995734')">Code</label>
+                <input type="text" formControlName="Code" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.Code.errors }" uppercase (contextmenu)="__elementSelectionService.select('1237477758',$event)" [ngStyle]="__elementSelectionService.getStyles('1237477758')">
+                <div *ngIf="submitted &#38;&#38; f.Code.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1244677557',$event)" [ngStyle]="__elementSelectionService.getStyles('1244677557')">
+                  <div *ngIf="f.Code.errors.required" (contextmenu)="__elementSelectionService.select('1630249542',$event)" [ngStyle]="__elementSelectionService.getStyles('1630249542')">Code is required</div>
+                </div>
+              </div>
+              <div class="form-group col-3" (contextmenu)="__elementSelectionService.select('2144374561',$event)" [ngStyle]="__elementSelectionService.getStyles('2144374561')">
+                <label (contextmenu)="__elementSelectionService.select('629375036',$event)" [ngStyle]="__elementSelectionService.getStyles('629375036')">Member Type</label>
+                <select formControlName="TypeID" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.TypeID.errors }" (contextmenu)="__elementSelectionService.select('1842771156',$event)" [ngStyle]="__elementSelectionService.getStyles('1842771156')">
+                  <option *ngFor="let memberType of memberTypes" value="{{memberType.TypeID}}" (contextmenu)="__elementSelectionService.select('1364447930',$event)" [ngStyle]="__elementSelectionService.getStyles('1364447930')">{{memberType.Title}}</option>
+                </select>
+                <div *ngIf="submitted &#38;&#38; f.TypeID.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('713156150',$event)" [ngStyle]="__elementSelectionService.getStyles('713156150')">
+                  <div *ngIf="f.TypeID.errors.required" (contextmenu)="__elementSelectionService.select('322572602',$event)" [ngStyle]="__elementSelectionService.getStyles('322572602')">Member type is required</div>
+                </div>
+              </div>
+              <div class="form-group col-5" (contextmenu)="__elementSelectionService.select('1301587805',$event)" [ngStyle]="__elementSelectionService.getStyles('1301587805')">
+                <label (contextmenu)="__elementSelectionService.select('35482199',$event)" [ngStyle]="__elementSelectionService.getStyles('35482199')">Category Name</label>
+                <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.Name.errors }" uppercase (contextmenu)="__elementSelectionService.select('654871668',$event)" [ngStyle]="__elementSelectionService.getStyles('654871668')">
+                <div *ngIf="submitted &#38;&#38; f.Name.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1694034542',$event)" [ngStyle]="__elementSelectionService.getStyles('1694034542')">
+                  <div *ngIf="f.Name.errors.required" (contextmenu)="__elementSelectionService.select('213784547',$event)" [ngStyle]="__elementSelectionService.getStyles('213784547')">Name is required</div>
+                </div>
+              </div>              
+               <div class="form-group col-2" (contextmenu)="__elementSelectionService.select('1696107505',$event)" [ngStyle]="__elementSelectionService.getStyles('1696107505')">
+                 <label (contextmenu)="__elementSelectionService.select('110153738',$event)" [ngStyle]="__elementSelectionService.getStyles('110153738')">Fees</label>
+                 <input type="number" formControlName="Fees" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.Fees.errors }" uppercase (contextmenu)="__elementSelectionService.select('622387500',$event)" [ngStyle]="__elementSelectionService.getStyles('622387500')">
+                 <div *ngIf="submitted &#38;&#38; f.Fees.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1508240227',$event)" [ngStyle]="__elementSelectionService.getStyles('1508240227')">
+                   <div *ngIf="f.Fees.errors.required" (contextmenu)="__elementSelectionService.select('2021897389',$event)" [ngStyle]="__elementSelectionService.getStyles('2021897389')">Fees is required</div>
+                 </div>
+               </div>
+            </div>
+            <div class="form-row" (contextmenu)="__elementSelectionService.select('2014526263',$event)" [ngStyle]="__elementSelectionService.getStyles('2014526263')">
+              <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('450929816',$event)" [ngStyle]="__elementSelectionService.getStyles('450929816')">
+                <label (contextmenu)="__elementSelectionService.select('1823013460',$event)" [ngStyle]="__elementSelectionService.getStyles('1823013460')">Description</label>
+                <input type="text" formControlName="Description" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.Description.errors }" uppercase (contextmenu)="__elementSelectionService.select('158010800',$event)" [ngStyle]="__elementSelectionService.getStyles('158010800')">
+                <div *ngIf="submitted &#38;&#38; f.Description.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1749046569',$event)" [ngStyle]="__elementSelectionService.getStyles('1749046569')">
+                  <div *ngIf="f.Description.errors.required" (contextmenu)="__elementSelectionService.select('1998321885',$event)" [ngStyle]="__elementSelectionService.getStyles('1998321885')">Description is required</div>
+                </div>
+              </div>
+              <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('1548404272',$event)" [ngStyle]="__elementSelectionService.getStyles('1548404272')">
+                <label class="invisible" (contextmenu)="__elementSelectionService.select('228415108',$event)" [ngStyle]="__elementSelectionService.getStyles('228415108')">Action</label>
+                <div class="form-inline pull-right" (contextmenu)="__elementSelectionService.select('1730061059',$event)" [ngStyle]="__elementSelectionService.getStyles('1730061059')">
+                  <a routerLink="{{parentUrl}}" class="btn btn-danger" (contextmenu)="__elementSelectionService.select('1340826157',$event)" [ngStyle]="__elementSelectionService.getStyles('1340826157')">Cancel</a>
+                  <button [disabled]="loading" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1159354022',$event)" [ngStyle]="__elementSelectionService.getStyles('1159354022')">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" (contextmenu)="__elementSelectionService.select('584323575',$event)" [ngStyle]="__elementSelectionService.getStyles('584323575')"></span>
+                    {{isAddMode? 'Add' : 'Save'}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-body" (contextmenu)="__elementSelectionService.select('809543701',$event)" [ngStyle]="__elementSelectionService.getStyles('809543701')">
+          <div class="table-responsive" (contextmenu)="__elementSelectionService.select('615403066',$event)" [ngStyle]="__elementSelectionService.getStyles('615403066')">
+            <table class="table" (contextmenu)="__elementSelectionService.select('857117551',$event)" [ngStyle]="__elementSelectionService.getStyles('857117551')">
+              <thead class="text-green" (contextmenu)="__elementSelectionService.select('835680083',$event)" [ngStyle]="__elementSelectionService.getStyles('835680083')">
+              <tr (contextmenu)="__elementSelectionService.select('75133311',$event)" [ngStyle]="__elementSelectionService.getStyles('75133311')">
+                <th class="text-center" (contextmenu)="__elementSelectionService.select('1383276628',$event)" [ngStyle]="__elementSelectionService.getStyles('1383276628')">#</th>
+                <th (contextmenu)="__elementSelectionService.select('1442401438',$event)" [ngStyle]="__elementSelectionService.getStyles('1442401438')">Code</th>
+                <th (contextmenu)="__elementSelectionService.select('533126301',$event)" [ngStyle]="__elementSelectionService.getStyles('533126301')">Member Type</th>
+                <th (contextmenu)="__elementSelectionService.select('1214293907',$event)" [ngStyle]="__elementSelectionService.getStyles('1214293907')">Category Name</th>
+                <th (contextmenu)="__elementSelectionService.select('64642891',$event)" [ngStyle]="__elementSelectionService.getStyles('64642891')">Fees</th>
+                <th class="text-right" (contextmenu)="__elementSelectionService.select('483946002',$event)" [ngStyle]="__elementSelectionService.getStyles('483946002')">Actions</th>
+              </tr>
+              </thead>
+              <tbody (contextmenu)="__elementSelectionService.select('903052064',$event)" [ngStyle]="__elementSelectionService.getStyles('903052064')">
+              <tr *ngIf="!rows || rows.length==0" (contextmenu)="__elementSelectionService.select('2025987638',$event)" [ngStyle]="__elementSelectionService.getStyles('2025987638')">
+                <td class="text-center" colspan="100%" (contextmenu)="__elementSelectionService.select('699610722',$event)" [ngStyle]="__elementSelectionService.getStyles('699610722')">
+                  {{
+                  errorMessage? errorMessage :
+                    ('Search could not find any '+ title.toLowerCase() + ' records')
+                  }}
+                </td>
+              </tr>
+              <tr template #elseBlock *ngFor="let row of rows; let i=index;" (contextmenu)="__elementSelectionService.select('1992582584',$event)" [ngStyle]="__elementSelectionService.getStyles('1992582584')">
+                <td class="text-center" (contextmenu)="__elementSelectionService.select('1482689083',$event)" [ngStyle]="__elementSelectionService.getStyles('1482689083')">{{(i+1) + '.'}}</td>
+                <td (contextmenu)="__elementSelectionService.select('809213103',$event)" [ngStyle]="__elementSelectionService.getStyles('809213103')">{{row.Code | uppercase}}</td>
+                <td (contextmenu)="__elementSelectionService.select('9157868',$event)" [ngStyle]="__elementSelectionService.getStyles('9157868')">{{memberType[row?.TypeID]?.Title || '-'}}</td>
+                <td (contextmenu)="__elementSelectionService.select('1438114016',$event)" [ngStyle]="__elementSelectionService.getStyles('1438114016')">{{row.Name | uppercase}}</td>
+                <td (contextmenu)="__elementSelectionService.select('232655295',$event)" [ngStyle]="__elementSelectionService.getStyles('232655295')">{{row.Fees}}</td>
+                <td class="text-right" (contextmenu)="__elementSelectionService.select('1642869327',$event)" [ngStyle]="__elementSelectionService.getStyles('1642869327')">
+                  <a class="btn btn-success btn-icon btn-sm btn-neutral" rel="tooltip" data-original-title title routerLink="/{{editUrl + row[pk]}}" (contextmenu)="__elementSelectionService.select('1012768322',$event)" [ngStyle]="__elementSelectionService.getStyles('1012768322')">
+                    <i class="fa fa-edit" (contextmenu)="__elementSelectionService.select('1443350985',$event)" [ngStyle]="__elementSelectionService.getStyles('1443350985')"></i>
+                  </a>
+                  <button class="btn btn-danger btn-icon btn-sm btn-neutral" rel="tooltip" [disabled]="row.isDeleting" type="button" data-original-title title (click)="deleteRow(row)" (contextmenu)="__elementSelectionService.select('728346951',$event)" [ngStyle]="__elementSelectionService.getStyles('728346951')">
+                    <span *ngIf="row.isDeleting" class="spinner-border spinner-border-sm" (contextmenu)="__elementSelectionService.select('731349039',$event)" [ngStyle]="__elementSelectionService.getStyles('731349039')"></span>
+                    <span *ngIf="!row.isDeleting" (contextmenu)="__elementSelectionService.select('2078848145',$event)" [ngStyle]="__elementSelectionService.getStyles('2078848145')"><i class="fa fa-times" (contextmenu)="__elementSelectionService.select('323580836',$event)" [ngStyle]="__elementSelectionService.getStyles('323580836')"></i></span>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<h3 class="pt-3">{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label>Notification Type</label>
+      <select formControlName="MessageType" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.MessageType.errors }">
+        <option *ngFor="let notification of constants.notificationType" value="{{notification.value}}">{{notification.name}}</option>
+      </select>
+      <div *ngIf="submitted && f.MessageType.errors" class="invalid-feedback">
+        <div *ngIf="f.MessageType.errors.required">MessageType is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6" *ngIf="form.get('MessageType').value === 'sms'">
+      <label>Recipient Phone Number</label>
+      <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="PhoneNo"
+             type="text" [ngClass]="{'is-invalid': submitted && f.PhoneNo.errors}"
+             mask="(+000) 000-000000">
+      <div *ngIf="submitted && f.PhoneNo.errors" class="invalid-feedback">
+        <div *ngIf="f.PhoneNo.errors.required">Phone number is required</div>
+        <div *ngIf="f.PhoneNo.errors.minlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.PhoneNo.errors.maxlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.PhoneNo.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+      </div>
+    </div>
+    <div class="form-group col-6" *ngIf="form.get('MessageType').value === 'email'">
+      <label>Email Address</label>
+      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row" *ngIf="form.get('MessageType').value === 'email'">
+    <div class="form-group col-12">
+      <label>Email Subject</label>
+      <input type="text" formControlName="MessageTitle" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.MessageTitle.errors }" uppercase/>
+      <div *ngIf="submitted && f.MessageTitle.errors" class="invalid-feedback">
+        <div *ngIf="f.MessageTitle.errors.required">Email Subject is required</div>
+      </div>
+    </div>
+    <div class="form-group col-12" >
+      <label>Email Body</label>
+      <textarea formControlName="MessageBody" class="form-control" [rows]="3"
+             [ngClass]="{ 'is-invalid': submitted && f.MessageBody.errors }">
+      </textarea>
+      <div *ngIf="submitted && f.MessageBody.errors" class="invalid-feedback">
+        <div *ngIf="f.MessageBody.errors.required">Email Body is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row" *ngIf="form.get('MessageType').value === 'sms'">
+    <div class="form-group col-12" >
+      <label>SMS</label>
+      <textarea formControlName="MessageBody" class="form-control" [rows]="3"
+             [ngClass]="{ 'is-invalid': submitted && f.MessageBody.errors }">
+      </textarea>
+      <div *ngIf="submitted && f.MessageBody.errors" class="invalid-feedback">
+        <div *ngIf="f.MessageBody.errors.required">Message is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Send
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link">Cancel</a>
+  </div>
+</form>

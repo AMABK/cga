@@ -1,0 +1,160 @@
+<h3 class="pt-3">{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>County</label>
+      <label>County</label>
+      <select formControlName="County" class="form-control" (change)="onCountyChange($event.target.value)" [ngClass]="{ 'is-invalid': submitted && f.County.errors }">
+        <option *ngFor="let county of countyList" value="{{county.name}}">{{county.name}}</option>
+      </select>
+      <div *ngIf="submitted && f.County.errors" class="invalid-feedback">
+        <div *ngIf="f.County.errors.required">County is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>SubCounty</label>
+      <select formControlName="Subcounty" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Subcounty.errors }">
+        <option value=""></option>
+        <option *ngFor="let subcounty of selectedCounty.sub_counties" value="{{subcounty}}">{{subcounty}}</option>
+      </select>
+      <div *ngIf="submitted && f.Subcounty.errors" class="invalid-feedback">
+        <div *ngIf="f.Subcounty.errors.required">Subcounty is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Agriprenuer</label>
+      <input type="text" formControlName="AgentID" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AgentID.errors }" uppercase/>
+      <div *ngIf="submitted && f.AgentID.errors" class="invalid-feedback">
+        <div *ngIf="f.AgentID.errors.required">Rular Agreprenuer field is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-2">
+      <label>Year</label>
+      <select class="form-control pl-1 pr-0" formControlName="Year" [ngClass]="{ 'is-invalid': submitted && f.Year.errors }">
+        <option *ngFor="let year of functions.getYearsBefore(5)" [ngValue]="year">{{year}}</option>
+      </select>
+      <div *ngIf="submitted && f.Year.errors" class="invalid-feedback">
+        <div *ngIf="f.Year.errors.required">Year is required</div>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <label>Month</label>
+      <select class="form-control pl-1 pr-0" formControlName="Month" [ngClass]="{ 'is-invalid': submitted && f.Month.errors }">
+        <option *ngFor="let month of functions.getMonths()" value="{{month}}">{{month}}</option>
+      </select>
+      <div *ngIf="submitted && f.Month.errors" class="invalid-feedback">
+        <div *ngIf="f.Month.errors.required">Month is required</div>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <label>Week</label>
+      <select class="form-control pl-1 pr-0" formControlName="Week" [ngClass]="{ 'is-invalid': submitted && f.Week.errors }">
+        <option *ngFor="let week of functions.getWeeks()" value="{{week}}">{{week}}</option>
+      </select>
+      <div *ngIf="submitted && f.Week.errors" class="invalid-feedback">
+        <div *ngIf="f.Week.errors.required">Week is required</div>
+      </div>
+    </div>
+
+    <div class="form-group col-6">
+      <label>Agricoordinator</label>
+      <input type="text" formControlName="AgriBusinessCoordinatorID" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.AgriBusinessCoordinatorID.errors }" uppercase/>
+      <div *ngIf="submitted && f.AgriBusinessCoordinatorID.errors" class="invalid-feedback">
+        <div *ngIf="f.AgriBusinessCoordinatorID.errors.required">AgriBusiness Coordinator field is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Name of Farmer</label>
+      <input type="text" formControlName="FarmerName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FarmerName.errors }" uppercase/>
+      <div *ngIf="submitted && f.FarmerName.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerName.errors.required">Farmer Name is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Farmer Phone Number</label>
+      <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="FarmerPhone"
+             type="text" [ngClass]="{'is-invalid': submitted && f.FarmerPhone.errors}"
+             mask="(+000) 000-000000">
+      <div *ngIf="submitted && f.FarmerPhone.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmerPhone.errors.required">Farmer Phone number is required</div>
+        <div *ngIf="f.FarmerPhone.errors.minlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.FarmerPhone.errors.maxlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.FarmerPhone.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Name of Service</label>
+      <input type="text" formControlName="ServiceName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.ServiceName.errors }" uppercase/>
+      <div *ngIf="submitted && f.ServiceName.errors" class="invalid-feedback">
+        <div *ngIf="f.ServiceName.errors.required">Service Name is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Service Provider Name</label>
+      <input type="text" formControlName="ServiceProvider" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.ServiceProvider.errors }" uppercase/>
+      <div *ngIf="submitted && f.ServiceProvider.errors" class="invalid-feedback">
+        <div *ngIf="f.ServiceProvider.errors.required">Service Provider Name is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Quantity</label>
+      <input type="number" formControlName="Quantity" class="form-control" (keyup)="onUnitChange()"
+             [ngClass]="{ 'is-invalid': submitted && f.Quantity.errors }" onlyNumber="true"/>
+      <div *ngIf="submitted && f.Quantity.errors" class="invalid-feedback">
+        <div *ngIf="f.Quantity.errors.required">Quantity is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Unit of Measurement</label>
+      <input type="text" formControlName="MeasurementUnit" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.MeasurementUnit.errors }"/>
+      <div *ngIf="submitted && f.MeasurementUnit.errors" class="invalid-feedback">
+        <div *ngIf="f.MeasurementUnit.errors.required">Measurement Unit is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Price per Unit</label>
+      <input type="number" formControlName="UnitPrice" class="form-control" (keyup)="onUnitChange()"
+             [ngClass]="{ 'is-invalid': submitted && f.UnitPrice.errors }" onlyNumber="true"/>
+      <div *ngIf="submitted && f.UnitPrice.errors" class="invalid-feedback">
+        <div *ngIf="f.UnitPrice.errors.required">Unit Price is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Total Value of Service</label>
+      <input type="number" formControlName="TotalValue" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.TotalValue.errors }" onlyNumber="true" readonly/>
+      <div *ngIf="submitted && f.TotalValue.errors" class="invalid-feedback">
+        <div *ngIf="f.TotalValue.errors.required">Total Value is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Commission Earned</label>
+      <input type="number" formControlName="Commission" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.Commission.errors }" onlyNumber="true" uppercase/>
+      <div *ngIf="submitted && f.Commission.errors" class="invalid-feedback">
+        <div *ngIf="f.Commission.errors.required">Commission is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link">Cancel</a>
+  </div>
+</form>

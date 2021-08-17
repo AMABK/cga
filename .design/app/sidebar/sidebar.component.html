@@ -1,0 +1,36 @@
+<div class="sidebar" (contextmenu)="__elementSelectionService.select('1732318519',$event)" [ngStyle]="__elementSelectionService.getStyles('1732318519')"(click)='__elementSelectionService.clear()'>
+  <div class="logo" (contextmenu)="__elementSelectionService.select('1560312476',$event)" [ngStyle]="__elementSelectionService.getStyles('1560312476')">
+    <a href="https://www.cga.co.ke" class="simple-text logo-normal" (contextmenu)="__elementSelectionService.select('847721638',$event)" [ngStyle]="__elementSelectionService.getStyles('847721638')">
+      <div class="logo-image-normal text-center" (contextmenu)="__elementSelectionService.select('1348278326',$event)" [ngStyle]="__elementSelectionService.getStyles('1348278326')">
+        <img src="assets/img/cga.png" height="50" (contextmenu)="__elementSelectionService.select('814182012',$event)" [ngStyle]="__elementSelectionService.getStyles('814182012')">
+      </div>
+    </a>
+  </div>
+  <div class="sidebar-wrapper ps overflow-auto" (contextmenu)="__elementSelectionService.select('1846355562',$event)" [ngStyle]="__elementSelectionService.getStyles('1846355562')">
+    <ul class="nav" (contextmenu)="__elementSelectionService.select('1696861449',$event)" [ngStyle]="__elementSelectionService.getStyles('1696861449')">
+        <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}}" (contextmenu)="__elementSelectionService.select('1568683315',$event)" [ngStyle]="__elementSelectionService.getStyles('1568683315')">
+            <a (click)="toggle(menuItem)" [routerLink]="[menuItem.children.length&#62;0? '#' : menuItem.path]" (contextmenu)="__elementSelectionService.select('1451181169',$event)" [ngStyle]="__elementSelectionService.getStyles('1451181169')">
+                <i class="nc-icon {{menuItem.icon}}" (contextmenu)="__elementSelectionService.select('1363543714',$event)" [ngStyle]="__elementSelectionService.getStyles('1363543714')"></i>
+                <p (contextmenu)="__elementSelectionService.select('340723142',$event)" [ngStyle]="__elementSelectionService.getStyles('340723142')">
+                	{{menuItem.title}}
+                	<b *ngIf="menuItem.children.length&#62;0" class="caret" (contextmenu)="__elementSelectionService.select('1211794385',$event)" [ngStyle]="__elementSelectionService.getStyles('1211794385')"></b>
+                </p>
+            </a>
+            
+            <div [ngClass]="{'show':menuItem.isOpen}" class="collapse" *ngIf="menuItem.children.length&#62;0" (contextmenu)="__elementSelectionService.select('1690966635',$event)" [ngStyle]="__elementSelectionService.getStyles('1690966635')">
+				<ul class="nav pl-3" (contextmenu)="__elementSelectionService.select('98067270',$event)" [ngStyle]="__elementSelectionService.getStyles('98067270')">
+					
+					<li *ngFor="let subMenuItem of menuItem.children" (contextmenu)="__elementSelectionService.select('1775576846',$event)" [ngStyle]="__elementSelectionService.getStyles('1775576846')">
+						<a [routerLink]="[subMenuItem.path]" (contextmenu)="__elementSelectionService.select('1970083310',$event)" [ngStyle]="__elementSelectionService.getStyles('1970083310')">
+							<span class="sidebar-normal" (contextmenu)="__elementSelectionService.select('1103118442',$event)" [ngStyle]="__elementSelectionService.getStyles('1103118442')">
+								{{subMenuItem.title}}
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+		</li>
+    </ul>
+  </div>
+</div>

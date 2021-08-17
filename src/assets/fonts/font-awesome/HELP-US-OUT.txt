@@ -1,0 +1,47 @@
+<form ng-submit="saveAvatar(item_detail,uploader)" role="form">
+										<div class="row">										
+											<div class="col-md-12"> 
+												<div class="margiv-bottom-10">													
+													<a class="btn btn-circle btn-primary file-upload-input" href="#" data-toggle="dropdown" aria-expanded="true">
+														<i class="fa fa-plus"></i> 
+														{{item_pic.src? 'Change' : 'Add'}}																		
+													</a>
+													<button ng-if="item_pic.src" 
+														ng-click="item_pic.src='';item_pic.selection=[]"
+														type="submit" class="btn btn-danger btn-circle"> 
+														<i class="fa fa-remove"></i> Clear 
+													</button>
+													<button ng-if="item_pic.src"  
+														type="submit" class="btn btn-success btn-circle"> 
+														<i class="fa fa-check"></i> Save 
+													</button>
+													<input name="file" type="file" nv-file-select="" uploader="uploader" ng-jcrop-input="upload"
+													style="display:none" class="file-upload-input" ng-click="item_pic.thumbnail=true;">																						
+												</div>												
+											</div>
+										</div>
+										<hr/>
+										<div class="row">	
+											<div class="col-lg-8"> 	
+												<label ng-if="!item_pic.src" class="text-success">
+													Uploaded Image Appears Here.
+												</label>								
+												<div ng-jcrop="item_pic.src" 
+													 ng-jcrop-config-name="upload" 
+													 selection="item_pic.selection" 
+													 thumbnail="item_pic.thumbnail">
+												</div>
+											</div>
+											<div class="col-lg-4"> 
+												<div ng-if="item_pic.src && item_pic.selection">	
+													<span class="">x1: {{item_pic.selection[0]}} px</span><br>
+													<span class="">y1: {{item_pic.selection[1]}} px</span><br>
+													<span class="">x2: {{item_pic.selection[2]}} px</span><br>
+													<span class="">y2: {{item_pic.selection[3]}} px</span><br>
+													<span class="">w: {{item_pic.selection[4]}} px</span><br>
+													<span class="">h: {{item_pic.selection[5]}} px</span>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>

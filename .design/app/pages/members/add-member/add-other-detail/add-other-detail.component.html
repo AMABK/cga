@@ -1,0 +1,124 @@
+<form *ngIf="this.memberType=='group'" [formGroup]="groupMemberForm" (contextmenu)="__elementSelectionService.select('383987358',$event)" [ngStyle]="__elementSelectionService.getStyles('383987358')"(click)='__elementSelectionService.clear()'>
+	<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('794361680',$event)" [ngStyle]="__elementSelectionService.getStyles('794361680')">
+		<div class="col-sm-12" (contextmenu)="__elementSelectionService.select('1706604346',$event)" [ngStyle]="__elementSelectionService.getStyles('1706604346')">
+			<h5 class="info-text" (contextmenu)="__elementSelectionService.select('1646723467',$event)" [ngStyle]="__elementSelectionService.getStyles('1646723467')">Add Group Members Below</h5>
+		</div>
+	</div> 
+	<table class="table" (contextmenu)="__elementSelectionService.select('920925123',$event)" [ngStyle]="__elementSelectionService.getStyles('920925123')">
+		<thead class="text-green" (contextmenu)="__elementSelectionService.select('1588525104',$event)" [ngStyle]="__elementSelectionService.getStyles('1588525104')">
+			<tr (contextmenu)="__elementSelectionService.select('2123339192',$event)" [ngStyle]="__elementSelectionService.getStyles('2123339192')">				
+				<th (contextmenu)="__elementSelectionService.select('620685499',$event)" [ngStyle]="__elementSelectionService.getStyles('620685499')">#</th>
+				<th (contextmenu)="__elementSelectionService.select('856931788',$event)" [ngStyle]="__elementSelectionService.getStyles('856931788')">Full Name</th>
+				<th (contextmenu)="__elementSelectionService.select('441826534',$event)" [ngStyle]="__elementSelectionService.getStyles('441826534')">National ID</th>
+				<th (contextmenu)="__elementSelectionService.select('410376257',$event)" [ngStyle]="__elementSelectionService.getStyles('410376257')">Phone</th>
+				<th (contextmenu)="__elementSelectionService.select('1260208324',$event)" [ngStyle]="__elementSelectionService.getStyles('1260208324')">
+					<a class="cursor" (click)="addGroupMemberRow();" (contextmenu)="__elementSelectionService.select('1708026294',$event)" [ngStyle]="__elementSelectionService.getStyles('1708026294')">
+						<span class="fa fa-plus text-success" (contextmenu)="__elementSelectionService.select('1380670309',$event)" [ngStyle]="__elementSelectionService.getStyles('1380670309')"></span>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody (contextmenu)="__elementSelectionService.select('1690973885',$event)" [ngStyle]="__elementSelectionService.getStyles('1690973885')">
+			<ng-container formArrayName="tableRows" *ngFor="let group of mmc.controls ; let i=index">
+				<tr [formGroupName]="i" (contextmenu)="__elementSelectionService.select('1164984704',$event)" [ngStyle]="__elementSelectionService.getStyles('1164984704')">
+					<td (contextmenu)="__elementSelectionService.select('1407517505',$event)" [ngStyle]="__elementSelectionService.getStyles('1407517505')">{{i+1}}</td>
+					<td (contextmenu)="__elementSelectionService.select('1534982699',$event)" [ngStyle]="__elementSelectionService.getStyles('1534982699')">
+		                <input class="form-control" type="text" formControlName="FullName" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.FullName.errors }" (contextmenu)="__elementSelectionService.select('1849114663',$event)" [ngStyle]="__elementSelectionService.getStyles('1849114663')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.FullName.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('688676896',$event)" [ngStyle]="__elementSelectionService.getStyles('688676896')">
+			                <div *ngIf="group.controls.FullName.errors.required" (contextmenu)="__elementSelectionService.select('1376289099',$event)" [ngStyle]="__elementSelectionService.getStyles('1376289099')">Full name is required</div>
+			            </div>         
+		            </td>		            
+		            <td (contextmenu)="__elementSelectionService.select('1720747395',$event)" [ngStyle]="__elementSelectionService.getStyles('1720747395')">
+		                <input class="form-control" type="text" formControlName="IdDocumentNumber" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.IdDocumentNumber.errors }" (contextmenu)="__elementSelectionService.select('854771470',$event)" [ngStyle]="__elementSelectionService.getStyles('854771470')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.IdDocumentNumber.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('2016783376',$event)" [ngStyle]="__elementSelectionService.getStyles('2016783376')">
+			                <div *ngIf="group.controls.IdDocumentNumber.errors.required" (contextmenu)="__elementSelectionService.select('1847683204',$event)" [ngStyle]="__elementSelectionService.getStyles('1847683204')">Id Document Number is required</div>
+			            </div>         
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('209671262',$event)" [ngStyle]="__elementSelectionService.getStyles('209671262')">
+		                <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="PhoneNo" type="text" [ngClass]="{'is-invalid': submitted &#38;&#38; group.controls.PhoneNo.errors}" mask="(+000) 000-000000" (contextmenu)="__elementSelectionService.select('672213096',$event)" [ngStyle]="__elementSelectionService.getStyles('672213096')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.PhoneNo.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('2098283606',$event)" [ngStyle]="__elementSelectionService.getStyles('2098283606')">
+			                <div *ngIf="group.controls.PhoneNo.errors.required" (contextmenu)="__elementSelectionService.select('412186168',$event)" [ngStyle]="__elementSelectionService.getStyles('412186168')">Phone number is required</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.minlength" (contextmenu)="__elementSelectionService.select('1857686736',$event)" [ngStyle]="__elementSelectionService.getStyles('1857686736')">Must be equal to 12 character(s)</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.maxlength" (contextmenu)="__elementSelectionService.select('1338583815',$event)" [ngStyle]="__elementSelectionService.getStyles('1338583815')">Must be equal to 12 character(s)</div>
+							<div *ngIf="group.controls.PhoneNo.errors.pattern" (contextmenu)="__elementSelectionService.select('948827484',$event)" [ngStyle]="__elementSelectionService.getStyles('948827484')">Incorrect! use format e.g. (+000) 000-000000</div>
+			            </div>
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('725513411',$event)" [ngStyle]="__elementSelectionService.getStyles('725513411')">
+		                <a class="cursor" (click)="deleteRow(groupMemberForm,i)" (contextmenu)="__elementSelectionService.select('366748152',$event)" [ngStyle]="__elementSelectionService.getStyles('366748152')">
+		                	<span class="fa fa-times text-danger" (contextmenu)="__elementSelectionService.select('332112215',$event)" [ngStyle]="__elementSelectionService.getStyles('332112215')"></span>&#160;
+		                </a>
+		            </td>
+				</tr>
+			</ng-container>
+		</tbody>
+	</table>
+</form>
+
+
+<form *ngIf="this.memberType=='associate'" [formGroup]="associateManagerForm" (contextmenu)="__elementSelectionService.select('918011713',$event)" [ngStyle]="__elementSelectionService.getStyles('918011713')"(click)='__elementSelectionService.clear()'>
+	<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('1144750439',$event)" [ngStyle]="__elementSelectionService.getStyles('1144750439')">
+		<div class="col-sm-12" (contextmenu)="__elementSelectionService.select('477855055',$event)" [ngStyle]="__elementSelectionService.getStyles('477855055')">
+			<h5 class="info-text" (contextmenu)="__elementSelectionService.select('1750883545',$event)" [ngStyle]="__elementSelectionService.getStyles('1750883545')">Add Contact Details Of Managers</h5>
+		</div>
+	</div> 
+	<table class="table" (contextmenu)="__elementSelectionService.select('643008924',$event)" [ngStyle]="__elementSelectionService.getStyles('643008924')">
+		<thead class="text-green" (contextmenu)="__elementSelectionService.select('1056642184',$event)" [ngStyle]="__elementSelectionService.getStyles('1056642184')">
+			<tr (contextmenu)="__elementSelectionService.select('2033026845',$event)" [ngStyle]="__elementSelectionService.getStyles('2033026845')">
+				<th (contextmenu)="__elementSelectionService.select('1931322997',$event)" [ngStyle]="__elementSelectionService.getStyles('1931322997')">#</th>
+				<th (contextmenu)="__elementSelectionService.select('1228459747',$event)" [ngStyle]="__elementSelectionService.getStyles('1228459747')">Name</th>
+				<th (contextmenu)="__elementSelectionService.select('797039640',$event)" [ngStyle]="__elementSelectionService.getStyles('797039640')">Position</th>
+				<th (contextmenu)="__elementSelectionService.select('981574554',$event)" [ngStyle]="__elementSelectionService.getStyles('981574554')">Phone</th>
+				<th (contextmenu)="__elementSelectionService.select('615613617',$event)" [ngStyle]="__elementSelectionService.getStyles('615613617')">Email</th>
+				<th (contextmenu)="__elementSelectionService.select('737220882',$event)" [ngStyle]="__elementSelectionService.getStyles('737220882')">
+					<a class="cursor" (click)="addAssociateManagerRow();" (contextmenu)="__elementSelectionService.select('179396968',$event)" [ngStyle]="__elementSelectionService.getStyles('179396968')">
+						<span class="fa fa-plus text-success" (contextmenu)="__elementSelectionService.select('1025216215',$event)" [ngStyle]="__elementSelectionService.getStyles('1025216215')"></span>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody (contextmenu)="__elementSelectionService.select('354881993',$event)" [ngStyle]="__elementSelectionService.getStyles('354881993')">
+			<ng-container formArrayName="tableRows" *ngFor="let group of mgc.controls ; let i=index">
+				<tr [formGroupName]="i" (contextmenu)="__elementSelectionService.select('918402038',$event)" [ngStyle]="__elementSelectionService.getStyles('918402038')">
+					<td (contextmenu)="__elementSelectionService.select('931540584',$event)" [ngStyle]="__elementSelectionService.getStyles('931540584')">{{i+1}}</td>
+					<td (contextmenu)="__elementSelectionService.select('1443521401',$event)" [ngStyle]="__elementSelectionService.getStyles('1443521401')">
+		                <input class="form-control" type="text" formControlName="FullName" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.FullName.errors }" (contextmenu)="__elementSelectionService.select('2064554280',$event)" [ngStyle]="__elementSelectionService.getStyles('2064554280')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.FullName.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('553101244',$event)" [ngStyle]="__elementSelectionService.getStyles('553101244')">
+			                <div *ngIf="group.controls.FullName.errors.required" (contextmenu)="__elementSelectionService.select('646199460',$event)" [ngStyle]="__elementSelectionService.getStyles('646199460')">Full name is required</div>
+			            </div>         
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('596678310',$event)" [ngStyle]="__elementSelectionService.getStyles('596678310')">
+		                <input class="form-control" type="text" formControlName="Position" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.Position.errors }" (contextmenu)="__elementSelectionService.select('752393253',$event)" [ngStyle]="__elementSelectionService.getStyles('752393253')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.Position.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('831460421',$event)" [ngStyle]="__elementSelectionService.getStyles('831460421')">
+			                <div *ngIf="group.controls.Position.errors.required" (contextmenu)="__elementSelectionService.select('910777288',$event)" [ngStyle]="__elementSelectionService.getStyles('910777288')">Position is required</div>
+			            </div>         
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('290184705',$event)" [ngStyle]="__elementSelectionService.getStyles('290184705')">
+		                <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="PhoneNo" type="text" [ngClass]="{'is-invalid': submitted &#38;&#38; group.controls.PhoneNo.errors}" mask="(+000) 000-000000" (contextmenu)="__elementSelectionService.select('2040156601',$event)" [ngStyle]="__elementSelectionService.getStyles('2040156601')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.PhoneNo.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('813588467',$event)" [ngStyle]="__elementSelectionService.getStyles('813588467')">
+			                <div *ngIf="group.controls.PhoneNo.errors.required" (contextmenu)="__elementSelectionService.select('1284887855',$event)" [ngStyle]="__elementSelectionService.getStyles('1284887855')">Phone number is required</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.minlength" (contextmenu)="__elementSelectionService.select('56734058',$event)" [ngStyle]="__elementSelectionService.getStyles('56734058')">Must be equal to 12 character(s)</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.maxlength" (contextmenu)="__elementSelectionService.select('677199654',$event)" [ngStyle]="__elementSelectionService.getStyles('677199654')">Must be equal to 12 character(s)</div>
+							<div *ngIf="group.controls.PhoneNo.errors.pattern" (contextmenu)="__elementSelectionService.select('1780382745',$event)" [ngStyle]="__elementSelectionService.getStyles('1780382745')">Incorrect! use format e.g. (+000) 000-000000</div>
+			            </div>
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('146862296',$event)" [ngStyle]="__elementSelectionService.getStyles('146862296')">
+		                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.email.errors }" (contextmenu)="__elementSelectionService.select('103086667',$event)" [ngStyle]="__elementSelectionService.getStyles('103086667')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.email.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1195463078',$event)" [ngStyle]="__elementSelectionService.getStyles('1195463078')">
+			                <div *ngIf="group.controls.email.errors.required" (contextmenu)="__elementSelectionService.select('1587938275',$event)" [ngStyle]="__elementSelectionService.getStyles('1587938275')">Email is required</div>
+			                <div *ngIf="group.controls.email.errors.email" (contextmenu)="__elementSelectionService.select('1374645983',$event)" [ngStyle]="__elementSelectionService.getStyles('1374645983')">Email must be a valid email address</div>
+			            </div>
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('1882726411',$event)" [ngStyle]="__elementSelectionService.getStyles('1882726411')">
+		                <a class="cursor" (click)="deleteRow(associateManagerForm,i)" (contextmenu)="__elementSelectionService.select('1027183563',$event)" [ngStyle]="__elementSelectionService.getStyles('1027183563')">
+		                	<span class="fa fa-times text-danger" (contextmenu)="__elementSelectionService.select('1399731860',$event)" [ngStyle]="__elementSelectionService.getStyles('1399731860')"></span>&#160;
+		                </a>
+		            </td>
+				</tr>
+			</ng-container>
+		</tbody>
+	</table>	
+</form>
+
+<div class="pull-right wizard-submit" (contextmenu)="__elementSelectionService.select('1871516340',$event)" [ngStyle]="__elementSelectionService.getStyles('1871516340')"(click)='__elementSelectionService.clear()'>		
+	<button type="button" (click)="wsIsValid() &#38;&#38; onSubmit()" class="btn btn-success" (contextmenu)="__elementSelectionService.select('2036147120',$event)" [ngStyle]="__elementSelectionService.getStyles('2036147120')">Submit Now</button>
+</div>

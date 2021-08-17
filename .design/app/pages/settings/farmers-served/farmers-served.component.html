@@ -1,0 +1,68 @@
+<div class="main-content" (contextmenu)="__elementSelectionService.select('60264968',$event)" [ngStyle]="__elementSelectionService.getStyles('60264968')"(click)='__elementSelectionService.clear()'>
+  <div class="row" (contextmenu)="__elementSelectionService.select('1288278345',$event)" [ngStyle]="__elementSelectionService.getStyles('1288278345')">
+    <div class="col-md-12" (contextmenu)="__elementSelectionService.select('1945193738',$event)" [ngStyle]="__elementSelectionService.getStyles('1945193738')">
+      <div class="card" (contextmenu)="__elementSelectionService.select('1236405538',$event)" [ngStyle]="__elementSelectionService.getStyles('1236405538')">
+        <div class="card-header" (contextmenu)="__elementSelectionService.select('942992800',$event)" [ngStyle]="__elementSelectionService.getStyles('942992800')">
+          <h3 class="pt-3" (contextmenu)="__elementSelectionService.select('947347510',$event)" [ngStyle]="__elementSelectionService.getStyles('947347510')">{{title}}</h3>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" (contextmenu)="__elementSelectionService.select('1092088623',$event)" [ngStyle]="__elementSelectionService.getStyles('1092088623')">
+            <div class="form-row" (contextmenu)="__elementSelectionService.select('412433714',$event)" [ngStyle]="__elementSelectionService.getStyles('412433714')">
+              <div class="form-group col-8" (contextmenu)="__elementSelectionService.select('131304045',$event)" [ngStyle]="__elementSelectionService.getStyles('131304045')">
+                <label (contextmenu)="__elementSelectionService.select('77999217',$event)" [ngStyle]="__elementSelectionService.getStyles('77999217')">Description</label>
+                <input type="text" formControlName="Description" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.Description.errors }" uppercase (contextmenu)="__elementSelectionService.select('2060855617',$event)" [ngStyle]="__elementSelectionService.getStyles('2060855617')">
+                <div *ngIf="submitted &#38;&#38; f.Description.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1260119940',$event)" [ngStyle]="__elementSelectionService.getStyles('1260119940')">
+                  <div *ngIf="f.Description.errors.required" (contextmenu)="__elementSelectionService.select('1342213224',$event)" [ngStyle]="__elementSelectionService.getStyles('1342213224')">Description is required</div>
+                </div>
+              </div>
+              <div class="form-group col-4" (contextmenu)="__elementSelectionService.select('1710290877',$event)" [ngStyle]="__elementSelectionService.getStyles('1710290877')">
+                <label class="invisible" (contextmenu)="__elementSelectionService.select('774329955',$event)" [ngStyle]="__elementSelectionService.getStyles('774329955')">Action</label>
+                <div class="form-inline pull-right" (contextmenu)="__elementSelectionService.select('982819812',$event)" [ngStyle]="__elementSelectionService.getStyles('982819812')">
+                  <a routerLink="{{parentUrl}}" class="btn btn-danger" (contextmenu)="__elementSelectionService.select('1847790354',$event)" [ngStyle]="__elementSelectionService.getStyles('1847790354')">Cancel</a>
+                  <button [disabled]="loading" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('202130548',$event)" [ngStyle]="__elementSelectionService.getStyles('202130548')">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" (contextmenu)="__elementSelectionService.select('403476440',$event)" [ngStyle]="__elementSelectionService.getStyles('403476440')"></span>
+                    {{isAddMode? 'Add' : 'Save'}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-body" (contextmenu)="__elementSelectionService.select('119047358',$event)" [ngStyle]="__elementSelectionService.getStyles('119047358')">
+          <div class="table-responsive" (contextmenu)="__elementSelectionService.select('1905620180',$event)" [ngStyle]="__elementSelectionService.getStyles('1905620180')">
+            <table class="table" (contextmenu)="__elementSelectionService.select('525644150',$event)" [ngStyle]="__elementSelectionService.getStyles('525644150')">
+              <thead class="text-green" (contextmenu)="__elementSelectionService.select('1666883339',$event)" [ngStyle]="__elementSelectionService.getStyles('1666883339')">
+              <tr (contextmenu)="__elementSelectionService.select('539282090',$event)" [ngStyle]="__elementSelectionService.getStyles('539282090')">
+                <th class="text-center" (contextmenu)="__elementSelectionService.select('2060269998',$event)" [ngStyle]="__elementSelectionService.getStyles('2060269998')">#</th>
+                <th (contextmenu)="__elementSelectionService.select('1076422784',$event)" [ngStyle]="__elementSelectionService.getStyles('1076422784')">Description</th>
+                <th class="text-right" (contextmenu)="__elementSelectionService.select('2008909129',$event)" [ngStyle]="__elementSelectionService.getStyles('2008909129')">Actions</th>
+              </tr>
+              </thead>
+              <tbody (contextmenu)="__elementSelectionService.select('1900699790',$event)" [ngStyle]="__elementSelectionService.getStyles('1900699790')">
+              <tr *ngIf="!rows || rows.length==0" (contextmenu)="__elementSelectionService.select('1650014016',$event)" [ngStyle]="__elementSelectionService.getStyles('1650014016')">
+                <td class="text-center" colspan="100%" (contextmenu)="__elementSelectionService.select('1697820515',$event)" [ngStyle]="__elementSelectionService.getStyles('1697820515')">
+                  {{
+                  errorMessage? errorMessage :
+                    ('Search could not find any '+ title.toLowerCase() + ' records')
+                  }}
+                </td>
+              </tr>
+              <tr template #elseBlock *ngFor="let row of rows; let i=index;" (contextmenu)="__elementSelectionService.select('2118052161',$event)" [ngStyle]="__elementSelectionService.getStyles('2118052161')">
+                <td class="text-center" (contextmenu)="__elementSelectionService.select('1557313560',$event)" [ngStyle]="__elementSelectionService.getStyles('1557313560')">{{(i+1) + '.'}}</td>
+                <td (contextmenu)="__elementSelectionService.select('1998223349',$event)" [ngStyle]="__elementSelectionService.getStyles('1998223349')">{{row.Description | uppercase}}</td>
+                <td class="text-right" (contextmenu)="__elementSelectionService.select('119773122',$event)" [ngStyle]="__elementSelectionService.getStyles('119773122')">
+                  <a class="btn btn-success btn-icon btn-sm btn-neutral" rel="tooltip" data-original-title title routerLink="/{{editUrl + row[pk]}}" (contextmenu)="__elementSelectionService.select('249434758',$event)" [ngStyle]="__elementSelectionService.getStyles('249434758')">
+                    <i class="fa fa-edit" (contextmenu)="__elementSelectionService.select('1199929661',$event)" [ngStyle]="__elementSelectionService.getStyles('1199929661')"></i>
+                  </a>
+                  <button class="btn btn-danger btn-icon btn-sm btn-neutral" rel="tooltip" [disabled]="row.isDeleting" type="button" data-original-title title (click)="deleteRow(row)" (contextmenu)="__elementSelectionService.select('1661209575',$event)" [ngStyle]="__elementSelectionService.getStyles('1661209575')">
+                    <span *ngIf="row.isDeleting" class="spinner-border spinner-border-sm" (contextmenu)="__elementSelectionService.select('2013404610',$event)" [ngStyle]="__elementSelectionService.getStyles('2013404610')"></span>
+                    <span *ngIf="!row.isDeleting" (contextmenu)="__elementSelectionService.select('112618086',$event)" [ngStyle]="__elementSelectionService.getStyles('112618086')"><i class="fa fa-times" (contextmenu)="__elementSelectionService.select('1788262172',$event)" [ngStyle]="__elementSelectionService.getStyles('1788262172')"></i></span>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

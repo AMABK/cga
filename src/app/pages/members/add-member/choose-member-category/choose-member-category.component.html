@@ -1,0 +1,30 @@
+<form [formGroup]="form">   
+	<div class="row justify-content-center">
+		<div class="col-sm-12">
+			<h5 class="info-text">What is your prefered member category?</h5>
+		</div>
+	</div> 
+	<table class="table table-hover">
+		<thead class="text-green">
+			<tr>
+				<th>#</th>
+				<th>Member Category</th>
+				<th>Reg.Fees</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let c of memberCategories | RandomSearch:memberService.formValues.TypeID; let i=index" 
+				(click)="selectOption(c.CategoryID)" class="cursor {{(c.CategoryID==selected.CategoryID)? 'bg-grey' : ''}}">
+				<td>
+					<input id="{{CategoryID+i}}" name="CategoryID" [value]="c.CategoryID"
+						type="radio" formControlName="CategoryID" [checked]="(c.CategoryID==selected.CategoryID)"
+						[ngClass]="{'is-invalid': submitted && f.CategoryID?.errors}">
+				</td>
+				<td>{{c.Name}}</td>
+				<td>{{c.Fees | number:0}}</td>
+				<td>{{c.Description}}</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

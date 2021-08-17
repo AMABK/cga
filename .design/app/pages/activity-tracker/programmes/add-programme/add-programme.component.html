@@ -1,0 +1,46 @@
+<h3 class="pt-3" (contextmenu)="__elementSelectionService.select('1216079828',$event)" [ngStyle]="__elementSelectionService.getStyles('1216079828')"(click)='__elementSelectionService.clear()'>{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (contextmenu)="__elementSelectionService.select('440191852',$event)" [ngStyle]="__elementSelectionService.getStyles('440191852')"(click)='__elementSelectionService.clear()'>
+  <div class="form-row" (contextmenu)="__elementSelectionService.select('2021647282',$event)" [ngStyle]="__elementSelectionService.getStyles('2021647282')">
+    <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('82059386',$event)" [ngStyle]="__elementSelectionService.getStyles('82059386')">
+      <label (contextmenu)="__elementSelectionService.select('2047704728',$event)" [ngStyle]="__elementSelectionService.getStyles('2047704728')">Manager</label>
+      <select formControlName="ManagerID" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.ManagerID.errors }" (contextmenu)="__elementSelectionService.select('59528976',$event)" [ngStyle]="__elementSelectionService.getStyles('59528976')">
+        <option *ngFor="let manager of userManagers" value="{{manager.id}}" (contextmenu)="__elementSelectionService.select('74012320',$event)" [ngStyle]="__elementSelectionService.getStyles('74012320')">{{manager.FullName}}</option>
+      </select>
+      <div *ngIf="submitted &#38;&#38; f.ManagerID.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('556482983',$event)" [ngStyle]="__elementSelectionService.getStyles('556482983')">
+        <div *ngIf="f.ManagerID.errors.required" (contextmenu)="__elementSelectionService.select('809702052',$event)" [ngStyle]="__elementSelectionService.getStyles('809702052')">Manager field is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('1368848235',$event)" [ngStyle]="__elementSelectionService.getStyles('1368848235')">
+      <label (contextmenu)="__elementSelectionService.select('520382383',$event)" [ngStyle]="__elementSelectionService.getStyles('520382383')">Programme</label>
+      <input type="text" formControlName="ProgrammeName" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.ProgrammeName.errors }" uppercase (contextmenu)="__elementSelectionService.select('1691954065',$event)" [ngStyle]="__elementSelectionService.getStyles('1691954065')">
+      <div *ngIf="submitted &#38;&#38; f.ProgrammeName.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1277674396',$event)" [ngStyle]="__elementSelectionService.getStyles('1277674396')">
+        <div *ngIf="f.ProgrammeName.errors.required" (contextmenu)="__elementSelectionService.select('711739612',$event)" [ngStyle]="__elementSelectionService.getStyles('711739612')">Programme is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row" (contextmenu)="__elementSelectionService.select('384396065',$event)" [ngStyle]="__elementSelectionService.getStyles('384396065')">
+    <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('1002528718',$event)" [ngStyle]="__elementSelectionService.getStyles('1002528718')">
+      <label (contextmenu)="__elementSelectionService.select('1233666057',$event)" [ngStyle]="__elementSelectionService.getStyles('1233666057')">Start Date</label>
+      <input class="form-control" #datepickerYMD="bsDatepicker" bsDatepicker formControlName="StartDate" placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY' }" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.StartDate.errors }" (bsValueChange)="onDateChange($event)" (contextmenu)="__elementSelectionService.select('32164684',$event)" [ngStyle]="__elementSelectionService.getStyles('32164684')">
+
+      <div *ngIf="submitted &#38;&#38; f.StartDate.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1552357427',$event)" [ngStyle]="__elementSelectionService.getStyles('1552357427')">
+        <div *ngIf="f.StartDate.errors.required" (contextmenu)="__elementSelectionService.select('1837699906',$event)" [ngStyle]="__elementSelectionService.getStyles('1837699906')">Start date is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('1711967986',$event)" [ngStyle]="__elementSelectionService.getStyles('1711967986')">
+      <label (contextmenu)="__elementSelectionService.select('837650900',$event)" [ngStyle]="__elementSelectionService.getStyles('837650900')">End Date</label>
+      <input class="form-control" #datepickerYMD="bsDatepicker" bsDatepicker formControlName="EndDate" placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY' }" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.EndDate.errors }" (bsValueChange)="onDateChange($event)" (contextmenu)="__elementSelectionService.select('1431263578',$event)" [ngStyle]="__elementSelectionService.getStyles('1431263578')">
+
+      <div *ngIf="submitted &#38;&#38; f.EndDate.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1895383986',$event)" [ngStyle]="__elementSelectionService.getStyles('1895383986')">
+        <div *ngIf="f.EndDate.errors.required" (contextmenu)="__elementSelectionService.select('1110851137',$event)" [ngStyle]="__elementSelectionService.getStyles('1110851137')">End date is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group" (contextmenu)="__elementSelectionService.select('524860666',$event)" [ngStyle]="__elementSelectionService.getStyles('524860666')">
+    <button [disabled]="loading" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('820159424',$event)" [ngStyle]="__elementSelectionService.getStyles('820159424')">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" (contextmenu)="__elementSelectionService.select('171737789',$event)" [ngStyle]="__elementSelectionService.getStyles('171737789')"></span>
+      Save
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link" (contextmenu)="__elementSelectionService.select('2030789005',$event)" [ngStyle]="__elementSelectionService.getStyles('2030789005')">Cancel</a>
+  </div>
+</form>

@@ -1,0 +1,176 @@
+<h3 class="pt-3">{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Agent Number</label>
+      <input type="text" formControlName="username" class="form-control" [readonly]="true"/>
+    </div>
+    <div class="form-group col-4">
+      <label>Title</label>
+      <select formControlName="Title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Title.errors }">
+        <option value=""></option>
+        <option value="Mr">Mr</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Miss">Miss</option>
+        <option value="Ms">Ms</option>
+      </select>
+      <div *ngIf="submitted && f.Title.errors" class="invalid-feedback">
+        <div *ngIf="f.Title.errors.required">Title is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Full Name</label>
+      <input type="text" formControlName="FullName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }" uppercase/>
+      <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
+        <div *ngIf="f.FullName.errors.required">Full Name is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Date of Birth</label>
+      <input class="form-control" #datepickerYMD="bsDatepicker" bsDatepicker
+             formControlName="DateOfBirth"  placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY' }"
+             [ngClass]="{ 'is-invalid': submitted && f.DateOfBirth.errors }" uppercase>
+
+      <div *ngIf="submitted && f.DateOfBirth.errors" class="invalid-feedback">
+        <div *ngIf="f.DateOfBirth.errors.required">Date Of Birth is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Gender</label>
+      <div class="input-group">
+        <label class="form-checkbox" *ngFor="let item of constants.genderList; let i=index">
+          <input id="{{GenderMale+i}}" name="Gender" [value]="item.value"
+                 type="radio" formControlName="Gender" [checked]="item.checked"
+                 [ngClass]="{'is-invalid': submitted && f.Gender?.errors}">
+          {{item.name}}
+        </label>
+      </div>
+      <div *ngIf="submitted && f.Gender.errors" class="invalid-option-check">
+        <div *ngIf="f.Gender.errors.required">Gender is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Registration Date</label>
+      <input class="form-control" #datepickerYMD="bsDatepicker" bsDatepicker
+             formControlName="RegistrationDate"  placement="top" [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY  hh:mm a' }"
+             [ngClass]="{ 'is-invalid': submitted && f.RegistrationDate.errors }" uppercase>
+
+      <div *ngIf="submitted && f.RegistrationDate.errors" class="invalid-feedback">
+        <div *ngIf="f.RegistrationDate.errors.required">Registration date is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Email Address</label>
+      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Phone Number</label>
+      <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="PhoneNo"
+             type="text" [ngClass]="{'is-invalid': submitted && f.PhoneNo.errors}"
+             mask="(+000) 000-000000">
+      <div *ngIf="submitted && f.PhoneNo.errors" class="invalid-feedback">
+        <div *ngIf="f.PhoneNo.errors.required">Phone number is required</div>
+        <div *ngIf="f.PhoneNo.errors.minlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.PhoneNo.errors.maxlength">Must be equal to 12 character(s)</div>
+        <div *ngIf="f.PhoneNo.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>County</label>
+      <select formControlName="County" class="form-control" (change)="onCountyChange($event.target.value)" [ngClass]="{ 'is-invalid': submitted && f.County.errors }">
+        <option *ngFor="let county of countyList" value="{{county.name}}">{{county.name}}</option>
+      </select>
+      <div *ngIf="submitted && f.County.errors" class="invalid-feedback">
+        <div *ngIf="f.County.errors.required">County is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Subcounty:</label>
+      <select formControlName="Subcounty" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Subcounty.errors }">
+        <option value=""></option>
+        <option *ngFor="let subcounty of selectedCounty.sub_counties" value="{{subcounty}}">{{subcounty}}</option>
+      </select>
+      <div *ngIf="submitted && f.Subcounty.errors" class="invalid-feedback">
+        <div *ngIf="f.Subcounty.errors.required">Subcounty is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Ward</label>
+      <input formControlName="Ward" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Ward.errors }">
+      <div *ngIf="submitted && f.Ward.errors" class="invalid-feedback">
+        <div *ngIf="f.Ward.errors.required">Ward is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Type of Physical Space</label>
+      <select formControlName="SpaceCategoryID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SpaceCategoryID.errors }">
+        <option *ngFor="let spaceCategory of spaceCategories" value="{{spaceCategory.Description}}">{{spaceCategory.Description}}</option>
+      </select>
+      <div *ngIf="submitted && f.SpaceCategoryID.errors" class="invalid-feedback">
+        <div *ngIf="f.SpaceCategoryID.errors.required">Physical space is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Area of Interest</label>
+      <select formControlName="ServiceCategoryID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ServiceCategoryID.errors }">
+        <option *ngFor="let serviceCategory of serviceCategories" value="{{serviceCategory.Description}}">{{serviceCategory.Description}}</option>
+      </select>
+      <div *ngIf="submitted && f.ServiceCategoryID.errors" class="invalid-feedback">
+        <div *ngIf="f.ServiceCategoryID.errors.required">Area of Interest is required</div>
+      </div>
+    </div>
+    <div class="form-group col-4">
+      <label>Farmers Served</label>
+      <select formControlName="FarmersServed" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.FarmersServed.errors }">
+        <option *ngFor="let farmerServed of farmersServed" value="{{farmerServed.Description}}">{{farmerServed.Description}}</option>
+      </select>
+      <div *ngIf="submitted && f.FarmersServed.errors" class="invalid-feedback">
+        <div *ngIf="f.FarmersServed.errors.required">Farmers Served is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label>AgroDealer:</label>
+      <textarea class="form-control" rows="3" formControlName="AgroDealer"></textarea>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label>Aggregator/Buyer:</label>
+      <textarea class="form-control" rows="3" formControlName="AggregatorBuyer"></textarea>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label>Mechanization Provider:</label>
+      <textarea class="form-control" rows="3" formControlName="MechanizationProvider"></textarea>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label>Financial Provider:</label>
+      <textarea class="form-control" rows="3" formControlName="FinancialProvider"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link">Cancel</a>
+  </div>
+</form>

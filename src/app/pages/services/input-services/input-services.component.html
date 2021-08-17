@@ -1,0 +1,95 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">
+            {{title}}
+          </h3>
+          <div class="form-row">
+            <div class="form-group col-9">
+              <input class="form-control" placeholder="Search {{title}} Here.." [(ngModel)]="filter.term"
+                     (keyup)="($event.keyCode == 13 ? dataService.findByName(filter.term) : null)"/>
+            </div>
+            <div class="form-group col-3">
+              <a class="text-success pull-right" rel="tooltip" routerLink="/{{addUrl}}"
+                 type="button" data-original-title=""
+                 title="Add new {{object}} to system" >
+                <span><i class="fa fa-plus"></i> &nbsp;Add {{object}}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-green">
+              <tr>
+                <th class="text-center">#</th>
+                <th>County</th>
+                <th>Sub County</th>
+                <th>Agripreneur</th>
+                <th>Month</th>
+                <th>Week</th>
+                <th>Agricoordinator</th>
+                <th>Farmer Name</th>
+                <th>Farmer Phone</th>
+                <th>Product Bought</th>
+                <th>Product Company</th>
+                <th>Quantity</th>
+                <th>Unit Measure</th>
+                <th>Unit Price</th>
+                <th>Total Value</th>
+                <th>Commission</th>
+                <th class="text-right">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngIf="!rows || rows.length==0">
+                <td class="text-center" colspan="100%">
+                  {{
+                  errorMessage? errorMessage :
+                    ('Search could not find any '+ title.toLowerCase())
+                  }}
+                </td>
+              </tr>
+              <tr template #elseBlock *ngFor="let row of rows | RandomSearch:filter.term;let i=index;">
+                <td class="text-center">{{(i+1) + '.'}}</td>
+                <td>{{row.County | uppercase}}</td>
+                <td>{{row.Subcounty | uppercase}}</td>
+                <td>{{row.AgentID}}</td>
+                <td>{{row.Month}}</td>
+                <td>{{row.Week}}</td>
+                <td>{{row.AgriBusinessCoordinatorID}}</td>
+                <td>{{row.FarmerName | uppercase}}</td>
+                <td>{{row.FarmerPhone  | mask:'+000 000 000 000'}}</td>
+                <td>{{row.ProductBought | uppercase}}</td>
+                <td>{{row.CompanyName | uppercase}}</td>
+                <td>{{row.Quantity | number:0}}</td>
+                <td>{{row.MeasurementUnit | uppercase}}</td>
+                <td>{{row.UnitPrice | number:0}}</td>
+                <td>{{row.TotalValue | number:0}}</td>
+                <td>{{row.Commission | number:0}}</td>
+                <td class="text-right">
+                  <a class="btn btn-success btn-icon btn-sm btn-neutral" rel="tooltip"
+                     data-original-title="" title=""
+                     routerLink="/{{editUrl + row[pk]}}">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                  <button class="btn btn-danger btn-icon btn-sm btn-neutral" rel="tooltip"
+                          [disabled]="row.isDeleting" type="button" data-original-title=""
+                          title="" (click)="deleteRow(row)">
+                    <span *ngIf="row.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!row.isDeleting"><i class="fa fa-times"></i></span>
+                  </button>
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

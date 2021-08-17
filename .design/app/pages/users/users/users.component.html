@@ -1,0 +1,68 @@
+<div class="main-content" (contextmenu)="__elementSelectionService.select('2107172172',$event)" [ngStyle]="__elementSelectionService.getStyles('2107172172')"(click)='__elementSelectionService.clear()'>
+	<div class="row" (contextmenu)="__elementSelectionService.select('1671845298',$event)" [ngStyle]="__elementSelectionService.getStyles('1671845298')">
+		<div class="col-md-12" (contextmenu)="__elementSelectionService.select('1504603663',$event)" [ngStyle]="__elementSelectionService.getStyles('1504603663')">
+			<div class="card" (contextmenu)="__elementSelectionService.select('1595750006',$event)" [ngStyle]="__elementSelectionService.getStyles('1595750006')">
+				<div class="card-header" (contextmenu)="__elementSelectionService.select('1706082191',$event)" [ngStyle]="__elementSelectionService.getStyles('1706082191')">
+					<h3 class="card-title" (contextmenu)="__elementSelectionService.select('887778638',$event)" [ngStyle]="__elementSelectionService.getStyles('887778638')">
+						{{title}}
+					</h3>
+					<div class="form-row" (contextmenu)="__elementSelectionService.select('513717194',$event)" [ngStyle]="__elementSelectionService.getStyles('513717194')">
+						<div class="form-group col-9" (contextmenu)="__elementSelectionService.select('671521001',$event)" [ngStyle]="__elementSelectionService.getStyles('671521001')">
+							<input class="form-control" placeholder="Search {{title}} Here.." [(ngModel)]="filter.term" (keyup)="($event.keyCode == 13 ? dataService.findByName(filter.term) : null)" (contextmenu)="__elementSelectionService.select('1210717857',$event)" [ngStyle]="__elementSelectionService.getStyles('1210717857')">
+						</div>
+						<div class="form-group col-3" (contextmenu)="__elementSelectionService.select('793608951',$event)" [ngStyle]="__elementSelectionService.getStyles('793608951')">
+							<a class="text-success pull-right" rel="tooltip" routerLink="/{{addUrl}}" [attr.disabled]="false" type="button" data-original-title title="Add new {{object}} to system" (contextmenu)="__elementSelectionService.select('1151759415',$event)" [ngStyle]="__elementSelectionService.getStyles('1151759415')">
+								<span (contextmenu)="__elementSelectionService.select('1484483994',$event)" [ngStyle]="__elementSelectionService.getStyles('1484483994')"><i class="fa fa-plus" (contextmenu)="__elementSelectionService.select('1090316074',$event)" [ngStyle]="__elementSelectionService.getStyles('1090316074')"></i> &#160;Add {{object}}</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-body" (contextmenu)="__elementSelectionService.select('56987640',$event)" [ngStyle]="__elementSelectionService.getStyles('56987640')">
+					<div (contextmenu)="__elementSelectionService.select('1947554927',$event)" [ngStyle]="__elementSelectionService.getStyles('1947554927')">
+						<table class="table" (contextmenu)="__elementSelectionService.select('2005000394',$event)" [ngStyle]="__elementSelectionService.getStyles('2005000394')">
+							<thead class="text-green" (contextmenu)="__elementSelectionService.select('1357094055',$event)" [ngStyle]="__elementSelectionService.getStyles('1357094055')">
+								<tr (contextmenu)="__elementSelectionService.select('2136396556',$event)" [ngStyle]="__elementSelectionService.getStyles('2136396556')">
+									<th class="text-center" (contextmenu)="__elementSelectionService.select('566118053',$event)" [ngStyle]="__elementSelectionService.getStyles('566118053')">#</th>
+									<th (contextmenu)="__elementSelectionService.select('1497462248',$event)" [ngStyle]="__elementSelectionService.getStyles('1497462248')">Full Name</th>
+									<th (contextmenu)="__elementSelectionService.select('361487555',$event)" [ngStyle]="__elementSelectionService.getStyles('361487555')">Email Address</th>
+									<th (contextmenu)="__elementSelectionService.select('1552724941',$event)" [ngStyle]="__elementSelectionService.getStyles('1552724941')">Phone Number</th>
+									<th class="text-center" (contextmenu)="__elementSelectionService.select('265575831',$event)" [ngStyle]="__elementSelectionService.getStyles('265575831')">User Type</th>
+									<th class="text-right" (contextmenu)="__elementSelectionService.select('1567135664',$event)" [ngStyle]="__elementSelectionService.getStyles('1567135664')">Actions</th>
+								</tr>
+							</thead>
+							<tbody (contextmenu)="__elementSelectionService.select('382608666',$event)" [ngStyle]="__elementSelectionService.getStyles('382608666')">
+								<tr *ngIf="!rows || rows.length==0" (contextmenu)="__elementSelectionService.select('803598037',$event)" [ngStyle]="__elementSelectionService.getStyles('803598037')">
+									<td class="text-center" colspan="100%" (contextmenu)="__elementSelectionService.select('49296987',$event)" [ngStyle]="__elementSelectionService.getStyles('49296987')">
+										{{
+											errorMessage? errorMessage :
+											('Search could not find any '+ title.toLowerCase() + ' records')
+										}}
+									</td>
+								</tr>
+								<tr template #elseBlock *ngFor="let row of rows | RandomSearch:filter.term;let i=index;" (contextmenu)="__elementSelectionService.select('465368226',$event)" [ngStyle]="__elementSelectionService.getStyles('465368226')">
+									<td class="text-center" (contextmenu)="__elementSelectionService.select('2084435002',$event)" [ngStyle]="__elementSelectionService.getStyles('2084435002')">{{(i+1) + '.'}}</td>
+									<td (contextmenu)="__elementSelectionService.select('2091793966',$event)" [ngStyle]="__elementSelectionService.getStyles('2091793966')">
+										<a routerLink="/{{profileUrl + '/' +row[pk]}}" (contextmenu)="__elementSelectionService.select('2138017038',$event)" [ngStyle]="__elementSelectionService.getStyles('2138017038')">{{row.FullName | uppercase}}</a>
+									</td>
+									<td (contextmenu)="__elementSelectionService.select('51019685',$event)" [ngStyle]="__elementSelectionService.getStyles('51019685')">{{row.email | lowercase}}</td>
+									<td (contextmenu)="__elementSelectionService.select('277202906',$event)" [ngStyle]="__elementSelectionService.getStyles('277202906')">{{row.PhoneNo | mask:'+000 000 000 000'}}</td>
+									<td class="text-center" (contextmenu)="__elementSelectionService.select('492295338',$event)" [ngStyle]="__elementSelectionService.getStyles('492295338')">{{row.UserType || 'unknown'}}</td>
+									<td class="text-right" (contextmenu)="__elementSelectionService.select('508771827',$event)" [ngStyle]="__elementSelectionService.getStyles('508771827')">
+										<a class="btn btn-success btn-icon btn-sm btn-neutral" rel="tooltip" data-original-title title routerLink="/{{editUrl + row[pk]}}" (contextmenu)="__elementSelectionService.select('1324650187',$event)" [ngStyle]="__elementSelectionService.getStyles('1324650187')">
+											<i class="fa fa-edit" (contextmenu)="__elementSelectionService.select('1886469080',$event)" [ngStyle]="__elementSelectionService.getStyles('1886469080')"></i>
+										</a>
+										<button class="btn btn-danger btn-icon btn-sm btn-neutral" rel="tooltip" [disabled]="row.isDeleting" type="button" data-original-title title (click)="deleteRow(row)" (contextmenu)="__elementSelectionService.select('1403016184',$event)" [ngStyle]="__elementSelectionService.getStyles('1403016184')">
+											<span *ngIf="row.isDeleting" class="spinner-border spinner-border-sm" (contextmenu)="__elementSelectionService.select('1411076314',$event)" [ngStyle]="__elementSelectionService.getStyles('1411076314')"></span>
+                    						<span *ngIf="!row.isDeleting" (contextmenu)="__elementSelectionService.select('1056120388',$event)" [ngStyle]="__elementSelectionService.getStyles('1056120388')"><i class="fa fa-times" (contextmenu)="__elementSelectionService.select('1193631161',$event)" [ngStyle]="__elementSelectionService.getStyles('1193631161')"></i></span>
+										</button>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

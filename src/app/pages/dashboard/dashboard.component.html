@@ -1,0 +1,171 @@
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-single-02 text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Members</p>
+              <p class="card-title">+{{topStats?.memberCount || 0}}
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-refresh"></i> Update Now
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-money-coins text-success"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Registration Fees</p>
+              <p class="card-title">Kes {{topStats?.registrationFees || 0}}
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-calendar-o"></i> Last day
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-favourite-28 text-primary"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Agripreneurs</p>
+              <p class="card-title">+ {{topStats?.agriprenuerCount || 0}}
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-refresh"></i> Update now
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card ">
+      <div class="card-header ">
+        <h5 class="card-title">Paid up members by numbers</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body ">
+        <canvas id=chartMemberCategoryCount width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card ">
+      <div class="card-header">
+        <h5 class="card-title">No of Agriprenuers</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body ">
+        <canvas id=chartAgriprenuers width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card ">
+      <div class="card-header">
+        <h5 class="card-title">No of members recruited per agent</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body ">
+        <canvas id=chartMembersByAgents width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card ">
+      <div class="card-header">
+        <h5 class="card-title">No of Input Sold</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body ">
+        <canvas id=chartInputsold width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card ">
+      <div class="card-header">
+        <h5 class="card-title">Crop Aggregation</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body ">
+        <canvas id=chartCropaggregation width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

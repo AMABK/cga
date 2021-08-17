@@ -1,0 +1,22 @@
+<form [formGroup]="form" (contextmenu)="__elementSelectionService.select('2069509992',$event)" [ngStyle]="__elementSelectionService.getStyles('2069509992')"(click)='__elementSelectionService.clear()'>  
+	<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('398975035',$event)" [ngStyle]="__elementSelectionService.getStyles('398975035')">
+		<div class="col-sm-12" (contextmenu)="__elementSelectionService.select('1390937419',$event)" [ngStyle]="__elementSelectionService.getStyles('1390937419')">
+			<h5 class="info-text" (contextmenu)="__elementSelectionService.select('2023987465',$event)" [ngStyle]="__elementSelectionService.getStyles('2023987465')">Choose the type of membership</h5>
+		</div>
+	</div>   
+	<div class="row" (contextmenu)="__elementSelectionService.select('1637791026',$event)" [ngStyle]="__elementSelectionService.getStyles('1637791026')">
+		<div class="col-lg-{{12/memberTypes.length}} cursor" *ngFor="let t of memberTypes; let i = index;" (click)="selectOption(t.TypeID)" (contextmenu)="__elementSelectionService.select('1240487682',$event)" [ngStyle]="__elementSelectionService.getStyles('1240487682')">
+			<div class="card card-pricing {{(t.TypeID==selected.TypeID)? 'bg-grey' : ''}}" (contextmenu)="__elementSelectionService.select('1528873258',$event)" [ngStyle]="__elementSelectionService.getStyles('1528873258')">
+				<div class="card-body" (contextmenu)="__elementSelectionService.select('1068462230',$event)" [ngStyle]="__elementSelectionService.getStyles('1068462230')">
+					<div class="card-icon icon-primary " (contextmenu)="__elementSelectionService.select('730625396',$event)" [ngStyle]="__elementSelectionService.getStyles('730625396')">
+						<i class="{{t.Icon || 'nc-icon nc-single-02'}}" (contextmenu)="__elementSelectionService.select('1611624256',$event)" [ngStyle]="__elementSelectionService.getStyles('1611624256')"></i>
+					</div>
+					<h3 class="card-title" (contextmenu)="__elementSelectionService.select('1031527418',$event)" [ngStyle]="__elementSelectionService.getStyles('1031527418')">{{t.Title}}</h3>
+					<ul (contextmenu)="__elementSelectionService.select('2039756547',$event)" [ngStyle]="__elementSelectionService.getStyles('2039756547')">
+						<li (contextmenu)="__elementSelectionService.select('830200464',$event)" [ngStyle]="__elementSelectionService.getStyles('830200464')">{{t.Description}}</li>
+					</ul>			
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

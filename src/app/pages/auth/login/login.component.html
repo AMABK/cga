@@ -1,0 +1,66 @@
+<app-auth-header></app-auth-header>
+<div class="wrapper wrapper-full-page ">
+	<div class="full-page section-image"
+		data-image="./assets/img/bg/fabio-mangione.jpg" filter-color="black">
+		<div class="content">
+			<div class="container">
+				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+					<form (submit)="onSubmit()" class="form" name="form" [formGroup]="form" novalidate>
+						<div class="card card-login">
+							<div class="card-header ">
+								<div class="card-header ">
+									<h3 class="header text-center">Login</h3>
+								</div>
+							</div>
+							<div class="card-body ">
+								<div style="display:none">
+								    <input type="password" tabindex="-1"/>
+								</div>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i
+											class="nc-icon nc-single-02"></i></span>
+									</div>
+									<input class="form-control" placeholder="Phone or Email" formControlName="Username" 
+											type="text" [ngClass]="{'is-invalid': submitted && f.Username.errors}"
+											autocomplete="off">
+									<div *ngIf="submitted && f.Username.errors" class="invalid-feedback">
+			                            <div *ngIf="f.Username.errors.required">Enter your phone or email</div>
+			                        </div>
+								</div>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i
+											class="nc-icon nc-key-25"></i></span>
+									</div>
+									<input class="form-control" placeholder="Your Password" formControlName="Password" 
+											type="password" [ngClass]="{'is-invalid': submitted && f.Password.errors}"
+											autocomplete="off">
+									<div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+			                            <div *ngIf="f.Password.errors.required">Enter your password here</div>
+			                        </div>
+								</div>
+								<br>
+								<div class="form-group">
+									<div class="form-check">
+										<label class="form-check-label"><input checked=""
+											class="form-check-input" type="checkbox" value=""><span
+											class="form-check-sign"></span> Subscribe to newsletter </label>
+									</div>
+								</div>
+							</div>
+							<div class="card-footer ">
+								<button type="submit" class="btn btn-warning btn-round btn-block mb-3">
+									Login
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<app-auth-footer></app-auth-footer>
+		<div class="full-page-background"
+			style="background-image: url(./assets/img/bg/fabio-mangione.jpg)"></div>
+	</div>
+</div>

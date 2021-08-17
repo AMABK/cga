@@ -1,0 +1,114 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="pt-3">{{title}}</h3>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+              <div class="form-group col-2">
+                <label>Code</label>
+                <input type="text" formControlName="Code" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.Code.errors }" uppercase/>
+                <div *ngIf="submitted && f.Code.errors" class="invalid-feedback">
+                  <div *ngIf="f.Code.errors.required">Code is required</div>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <label>Member Type</label>
+                <select formControlName="TypeID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.TypeID.errors }">
+                  <option *ngFor="let memberType of memberTypes"  value="{{memberType.TypeID}}">{{memberType.Title}}</option>
+                </select>
+                <div *ngIf="submitted && f.TypeID.errors" class="invalid-feedback">
+                  <div *ngIf="f.TypeID.errors.required">Member type is required</div>
+                </div>
+              </div>
+              <div class="form-group col-5">
+                <label>Category Name</label>
+                <input type="text" formControlName="Name" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" uppercase/>
+                <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                  <div *ngIf="f.Name.errors.required">Name is required</div>
+                </div>
+              </div>              
+               <div class="form-group col-2">
+                 <label>Fees</label>
+                 <input type="number" formControlName="Fees" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.Fees.errors }" uppercase/>
+                 <div *ngIf="submitted && f.Fees.errors" class="invalid-feedback">
+                   <div *ngIf="f.Fees.errors.required">Fees is required</div>
+                 </div>
+               </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label>Description</label>
+                <input type="text" formControlName="Description" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.Description.errors }" uppercase/>
+                <div *ngIf="submitted && f.Description.errors" class="invalid-feedback">
+                  <div *ngIf="f.Description.errors.required">Description is required</div>
+                </div>
+              </div>
+              <div class="form-group col-6">
+                <label class="invisible">Action</label>
+                <div class="form-inline pull-right">
+                  <a routerLink="{{parentUrl}}" class="btn btn-danger">Cancel</a>
+                  <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    {{isAddMode? 'Add' : 'Save'}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-green">
+              <tr>
+                <th class="text-center">#</th>
+                <th>Code</th>
+                <th>Member Type</th>
+                <th>Category Name</th>
+                <th>Fees</th>
+                <th class="text-right">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngIf="!rows || rows.length==0">
+                <td class="text-center" colspan="100%">
+                  {{
+                  errorMessage? errorMessage :
+                    ('Search could not find any '+ title.toLowerCase() + ' records')
+                  }}
+                </td>
+              </tr>
+              <tr template #elseBlock *ngFor="let row of rows; let i=index;">
+                <td class="text-center">{{(i+1) + '.'}}</td>
+                <td>{{row.Code | uppercase}}</td>
+                <td>{{memberType[row?.TypeID]?.Title || '-'}}</td>
+                <td>{{row.Name | uppercase}}</td>
+                <td>{{row.Fees}}</td>
+                <td class="text-right">
+                  <a class="btn btn-success btn-icon btn-sm btn-neutral" rel="tooltip"
+                     data-original-title="" title=""
+                     routerLink="/{{editUrl + row[pk]}}">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                  <button class="btn btn-danger btn-icon btn-sm btn-neutral" rel="tooltip"
+                          [disabled]="row.isDeleting" type="button" data-original-title=""
+                          title="" (click)="deleteRow(row)">
+                    <span *ngIf="row.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!row.isDeleting"><i class="fa fa-times"></i></span>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.toast-bottom-center{
+	left: 85% !important;
+    position: fixed;
+    transform: translate(-50%, 0px);
+    z-index: 999999999;
+    bottom: 50px !important;
+}
+
+.wizard-submit {
+	margin-top: 5px !important;
+}
+
+.form-checkbox{
+	margin-right: 20px !important;
+}
+
+.sidebar[data-color=white] .nav li a,
+.sidebar[data-color=white] .nav li a i{
+	color: #ffffff !important;
+}
+.sidebar[data-active-color=danger] .nav li.active > a,
+.sidebar[data-active-color=danger] .nav li.active > a i{
+ 	color: #e5b645 !important;
+}
+
+.text-green{
+	color: #154120 !important;
+}
+
+.invalid-option-check{
+	color: #dc3545 !important;
+	font-size: 80% !important;
+}
+
+.cursor{
+	cursor: pointer !important;
+}
+
+.bg-grey{
+	background-color: #d5d5d5 !important;
+}
+
+.invisible{
+	display: block !important;
+	visibility: hidden !important;
+}
+.sidebar .sidebar-wrapper {
+  overflow: scroll !important;
+}

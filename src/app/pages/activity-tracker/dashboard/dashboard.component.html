@@ -1,0 +1,92 @@
+<div class="main-content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title">
+						{{title}}						
+					</h3>
+					<div class="form-row">
+						<div class="form-group col-5">
+							<select [(ngModel)]="filter.ProgrammeID" class="form-control" (change)="fetchData()">
+							    <option value="">All Programmes</option>
+							    <option *ngFor="let programme of programmes" value="{{programme.ProgrammeID}}">
+							    	{{programme.ProgrammeName}}
+							    </option>
+							</select>
+						</div>
+						<div class="form-group col-2">
+							<select [(ngModel)]="filter.Year" class="form-control" (change)="fetchData()">								
+							    <option *ngFor="let year of functions.getYearsBefore(5)" value="{{year}}">{{year}}</option>
+							</select>
+						</div>
+						<div class="form-group col-5">
+							<input class="form-control" placeholder="Search for indicators Here.." [(ngModel)]="filter.IndicatorName"
+								(keyup)="($event.keyCode == 13 ? fetchData() : null)"/>
+						</div>
+					</div>
+				</div>
+				<div class="card-body text-center mt-5 mb-5" *ngIf="loading || !rows || rows.length==0">
+					<div *ngIf="!loading">
+						{{
+							errorMessage? errorMessage :
+							('Search could not find any '+ title.toLowerCase() + ' records')
+						}}	
+					</div>
+					<div *ngIf="loading">
+						<span class="spinner-border spinner-border-sm"></span>
+						Processing data..please wait...
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- BEGIN: KPI STATISTICS -->
+	<div class="row" *ngFor="let row of rows; let i = index;">  
+	  <div class="col-md-12" *ngIf="row?.IndicatorNames && row.IndicatorNames.length>0;">
+	    <div class="card">
+	      <div class="card-body ">        
+			<table class="table">
+				<thead class="text-green">
+					<tr>
+						<th>#</th>
+						<th>{{row.Description}}</th>
+						<th class="text-right" width="200">{{filter.Year? filter.Year-1 : 'Previous'}} Achievement</th>	
+						<th class="text-right" width="150">Target {{filter?.Year}}</th>								
+						<th class="text-right" width="150">Achieved {{filter?.Year}}</th>
+						<th class="text-right" width="150">% Achieved</th>					
+					</tr>								
+				</thead>
+	        	<tbody>	        		
+					<tr *ngFor="let IndicatorName of row.IndicatorNames | 
+						RandomSearch:filter.IndicatorName; let i=index;">
+							<td>{{(i+1) + '.'}}</td>
+							<td>{{IndicatorName || '-'}}</td>
+							<td class="text-right">
+								{{(row.Previous[IndicatorName]?.Achievement | number:0) || '-'}}
+							</td>
+							<td class="text-right">
+								{{(row.Current[IndicatorName]?.Target | number:0) || '-'}}
+							</td>
+							<td class="text-right">
+								{{(row.Current[IndicatorName]?.Achievement | number:0) || '-'}}
+							</td>
+							<td class="text-right">								
+								<span *ngIf="row.Current[IndicatorName].QualitativeQuantitative=='QN' 
+									&& row.Current[IndicatorName].Target && row.Current[IndicatorName].Achievement
+									&& row.Current[IndicatorName].Target>0">
+									{{(current[IndicatorName]?.Achievement/current[IndicatorName]?.Target)*100 | number:0}}
+								</span>							
+								<span #elseBlock>
+									{{row.Current[IndicatorName].QualitativeQuantitative=='QN'? row.Current[IndicatorName]?.Achievement : '-'}}
+								</span>
+							</td>
+					</tr>
+	        	</tbody>
+	        </table>
+	      </div>
+	    </div>
+	  </div>
+ 	</div>
+ 	<!-- END: KPI STATISTICS -->
+ </div>

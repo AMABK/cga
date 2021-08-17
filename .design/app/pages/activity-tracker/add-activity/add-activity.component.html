@@ -1,0 +1,93 @@
+<h3 class="pt-3" (contextmenu)="__elementSelectionService.select('816205744',$event)" [ngStyle]="__elementSelectionService.getStyles('816205744')"(click)='__elementSelectionService.clear()'>{{title}}</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (contextmenu)="__elementSelectionService.select('1732759925',$event)" [ngStyle]="__elementSelectionService.getStyles('1732759925')"(click)='__elementSelectionService.clear()'>
+  <div class="form-row" (contextmenu)="__elementSelectionService.select('281009009',$event)" [ngStyle]="__elementSelectionService.getStyles('281009009')">
+    <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('1235909738',$event)" [ngStyle]="__elementSelectionService.getStyles('1235909738')">
+      <label (contextmenu)="__elementSelectionService.select('760699256',$event)" [ngStyle]="__elementSelectionService.getStyles('760699256')">Activity Name</label>
+      <input type="text" formControlName="ActivityName" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.ActivityName.errors }" uppercase (contextmenu)="__elementSelectionService.select('57877117',$event)" [ngStyle]="__elementSelectionService.getStyles('57877117')">
+      <div *ngIf="submitted &#38;&#38; f.ActivityName.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1836651825',$event)" [ngStyle]="__elementSelectionService.getStyles('1836651825')">
+        <div *ngIf="f.ActivityName.errors.required" (contextmenu)="__elementSelectionService.select('1999273432',$event)" [ngStyle]="__elementSelectionService.getStyles('1999273432')">Activity name is required</div>
+      </div>
+    </div>
+    <div class="form-group col-6" (contextmenu)="__elementSelectionService.select('1621194460',$event)" [ngStyle]="__elementSelectionService.getStyles('1621194460')">
+      <label (contextmenu)="__elementSelectionService.select('2052837503',$event)" [ngStyle]="__elementSelectionService.getStyles('2052837503')">Service Category</label>
+      <select formControlName="ServiceCategoryID" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; f.ServiceCategoryID.errors }" (contextmenu)="__elementSelectionService.select('1596883608',$event)" [ngStyle]="__elementSelectionService.getStyles('1596883608')">
+          <option *ngFor="let serviceCategory of serviceCategories" value="{{serviceCategory.ServiceCategoryID}}" (contextmenu)="__elementSelectionService.select('2077159448',$event)" [ngStyle]="__elementSelectionService.getStyles('2077159448')">{{serviceCategory.Description}}</option>
+      </select>
+      <div *ngIf="submitted &#38;&#38; f.ServiceCategoryID.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('280133163',$event)" [ngStyle]="__elementSelectionService.getStyles('280133163')">
+          <div *ngIf="f.ServiceCategoryID.errors.required" (contextmenu)="__elementSelectionService.select('877562986',$event)" [ngStyle]="__elementSelectionService.getStyles('877562986')">Service category is required</div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="indicatorsForm" (contextmenu)="__elementSelectionService.select('526381625',$event)" [ngStyle]="__elementSelectionService.getStyles('526381625')">
+  	<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('320704506',$event)" [ngStyle]="__elementSelectionService.getStyles('320704506')">
+		<div class="col-sm-12" (contextmenu)="__elementSelectionService.select('282978452',$event)" [ngStyle]="__elementSelectionService.getStyles('282978452')">
+			<h5 class="info-text pt-3" (contextmenu)="__elementSelectionService.select('1353714489',$event)" [ngStyle]="__elementSelectionService.getStyles('1353714489')">Activity Indicators</h5>
+		</div>
+	</div> 
+	<table class="table" (contextmenu)="__elementSelectionService.select('815719724',$event)" [ngStyle]="__elementSelectionService.getStyles('815719724')">
+		<thead class="text-green" (contextmenu)="__elementSelectionService.select('1325653658',$event)" [ngStyle]="__elementSelectionService.getStyles('1325653658')">
+			<tr (contextmenu)="__elementSelectionService.select('820319910',$event)" [ngStyle]="__elementSelectionService.getStyles('820319910')">				
+				<th (contextmenu)="__elementSelectionService.select('1616652864',$event)" [ngStyle]="__elementSelectionService.getStyles('1616652864')">#</th>
+				<th (contextmenu)="__elementSelectionService.select('657196258',$event)" [ngStyle]="__elementSelectionService.getStyles('657196258')">Indicator Name</th>
+				<th (contextmenu)="__elementSelectionService.select('1980430739',$event)" [ngStyle]="__elementSelectionService.getStyles('1980430739')">Measurement Unit</th>
+				<th (contextmenu)="__elementSelectionService.select('1858245074',$event)" [ngStyle]="__elementSelectionService.getStyles('1858245074')">Qualitative/<br (contextmenu)="__elementSelectionService.select('1875753056',$event)" [ngStyle]="__elementSelectionService.getStyles('1875753056')">Quantitative</th>
+				<th (contextmenu)="__elementSelectionService.select('679586415',$event)" [ngStyle]="__elementSelectionService.getStyles('679586415')">Activity/<br (contextmenu)="__elementSelectionService.select('166070413',$event)" [ngStyle]="__elementSelectionService.getStyles('166070413')">Result</th>
+				<th (contextmenu)="__elementSelectionService.select('1943032930',$event)" [ngStyle]="__elementSelectionService.getStyles('1943032930')">
+					<a class="cursor" (click)="addRow();" (contextmenu)="__elementSelectionService.select('1910308032',$event)" [ngStyle]="__elementSelectionService.getStyles('1910308032')">
+						<span class="fa fa-plus text-success" (contextmenu)="__elementSelectionService.select('1412162118',$event)" [ngStyle]="__elementSelectionService.getStyles('1412162118')"></span>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody (contextmenu)="__elementSelectionService.select('1831877166',$event)" [ngStyle]="__elementSelectionService.getStyles('1831877166')">
+			<ng-container formArrayName="tableRows" *ngFor="let group of itb.controls ; let i=index">
+				<tr [formGroupName]="i" (contextmenu)="__elementSelectionService.select('473039022',$event)" [ngStyle]="__elementSelectionService.getStyles('473039022')">
+					<td (contextmenu)="__elementSelectionService.select('169788692',$event)" [ngStyle]="__elementSelectionService.getStyles('169788692')">{{i+1}}</td>
+					<td (contextmenu)="__elementSelectionService.select('28061635',$event)" [ngStyle]="__elementSelectionService.getStyles('28061635')">
+		                <input class="form-control" type="text" formControlName="IndicatorName" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.IndicatorName.errors }" (contextmenu)="__elementSelectionService.select('1839305874',$event)" [ngStyle]="__elementSelectionService.getStyles('1839305874')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.IndicatorName.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1629150968',$event)" [ngStyle]="__elementSelectionService.getStyles('1629150968')">
+			                <div *ngIf="group.controls.IndicatorName.errors.required" (contextmenu)="__elementSelectionService.select('500208042',$event)" [ngStyle]="__elementSelectionService.getStyles('500208042')">Indicator name is required</div>
+			            </div>         
+		            </td>		            
+		            <td (contextmenu)="__elementSelectionService.select('2111993828',$event)" [ngStyle]="__elementSelectionService.getStyles('2111993828')">
+		                <input class="form-control" type="text" formControlName="MeasurementUnit" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.MeasurementUnit.errors }" (contextmenu)="__elementSelectionService.select('478570958',$event)" [ngStyle]="__elementSelectionService.getStyles('478570958')">
+			            <div *ngIf="submitted &#38;&#38; group.controls.MeasurementUnit.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('727484856',$event)" [ngStyle]="__elementSelectionService.getStyles('727484856')">
+			                <div *ngIf="group.controls.MeasurementUnit.errors.required" (contextmenu)="__elementSelectionService.select('848822456',$event)" [ngStyle]="__elementSelectionService.getStyles('848822456')">Measurement unit is required</div>
+			            </div>         
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('1546325080',$event)" [ngStyle]="__elementSelectionService.getStyles('1546325080')">
+		                <select formControlName="QualitativeQuantitative" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.QualitativeQuantitative.errors }" (contextmenu)="__elementSelectionService.select('1934411274',$event)" [ngStyle]="__elementSelectionService.getStyles('1934411274')">
+				          <option *ngFor="let indicatorType of constants.indicatorTypes" value="{{indicatorType.value}}" (contextmenu)="__elementSelectionService.select('1007849618',$event)" [ngStyle]="__elementSelectionService.getStyles('1007849618')">{{indicatorType.name}}</option>
+				        </select>
+			            <div *ngIf="submitted &#38;&#38; group.controls.QualitativeQuantitative.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1316866664',$event)" [ngStyle]="__elementSelectionService.getStyles('1316866664')">
+			                <div *ngIf="group.controls.QualitativeQuantitative.errors.required" (contextmenu)="__elementSelectionService.select('1253070387',$event)" [ngStyle]="__elementSelectionService.getStyles('1253070387')">Qualitative/quantitative is required</div>
+			            </div>         
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('1608103417',$event)" [ngStyle]="__elementSelectionService.getStyles('1608103417')">
+		                <select formControlName="ActivityOrResult" class="form-control" [ngClass]="{ 'is-invalid': submitted &#38;&#38; group.controls.ActivityOrResult.errors }" (contextmenu)="__elementSelectionService.select('2011637904',$event)" [ngStyle]="__elementSelectionService.getStyles('2011637904')">
+				          <option *ngFor="let activityResultType of constants.activityResultType" value="{{activityResultType.value}}" (contextmenu)="__elementSelectionService.select('1474925198',$event)" [ngStyle]="__elementSelectionService.getStyles('1474925198')">
+				          	{{activityResultType.name}}
+				          </option>
+				        </select>
+			            <div *ngIf="submitted &#38;&#38; group.controls.ActivityOrResult.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('522209166',$event)" [ngStyle]="__elementSelectionService.getStyles('522209166')">
+			                <div *ngIf="group.controls.ActivityOrResult.errors.required" (contextmenu)="__elementSelectionService.select('230969326',$event)" [ngStyle]="__elementSelectionService.getStyles('230969326')">Activity/result unit is required</div>
+			            </div>         
+		            </td>
+		            <td (contextmenu)="__elementSelectionService.select('1135170926',$event)" [ngStyle]="__elementSelectionService.getStyles('1135170926')">
+		                <a class="cursor" (click)="deleteRow(i)" (contextmenu)="__elementSelectionService.select('1481622135',$event)" [ngStyle]="__elementSelectionService.getStyles('1481622135')">
+		                	<span class="fa fa-times text-danger" (contextmenu)="__elementSelectionService.select('1162801863',$event)" [ngStyle]="__elementSelectionService.getStyles('1162801863')"></span>&#160;
+		                </a>
+		            </td>
+				</tr>
+			</ng-container>
+		</tbody>
+	</table>
+  </form>
+  <div class="form-group" (contextmenu)="__elementSelectionService.select('1784311487',$event)" [ngStyle]="__elementSelectionService.getStyles('1784311487')">
+    <button [disabled]="loading" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1666270399',$event)" [ngStyle]="__elementSelectionService.getStyles('1666270399')">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" (contextmenu)="__elementSelectionService.select('1168862936',$event)" [ngStyle]="__elementSelectionService.getStyles('1168862936')"></span>
+      Save
+    </button>
+    <a routerLink="{{parentUrl}}" class="btn btn-link" (contextmenu)="__elementSelectionService.select('2009162848',$event)" [ngStyle]="__elementSelectionService.getStyles('2009162848')">Cancel</a>
+  </div>
+</form>

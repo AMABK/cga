@@ -1,0 +1,23 @@
+<form [formGroup]="form">  
+	<div class="row justify-content-center">
+		<div class="col-sm-12">
+			<h5 class="info-text">Choose your preferred type of membership</h5>
+		</div>
+	</div>   
+	<div class="row">
+		<div class="col-lg-{{12/memberTypes.length}} cursor" *ngFor="let t of memberTypes; let i = index;"
+			(click)="selectOption(t.TypeID)">
+			<div class="card card-pricing {{(t.TypeID==selected.TypeID)? 'bg-grey' : ''}}">
+				<div class="card-body">
+					<div class="card-icon icon-primary ">
+						<i class="{{t.Icon || 'nc-icon nc-single-02'}}"></i>
+					</div>
+					<h3 class="card-title">{{t.Title}}</h3>
+					<ul>
+						<li>{{t.Description}}</li>
+					</ul>			
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

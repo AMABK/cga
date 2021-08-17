@@ -1,0 +1,88 @@
+<div class="main-content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title">
+						{{title}}						
+					</h3>
+					<div class="form-row">
+						<div class="form-group col-4">
+							<label>Search By Programme</label>
+							<select [(ngModel)]="filter.ProgrammeID" class="form-control" (change)="fetchKpi()">
+							    <option *ngFor="let programme of programmes" value="{{programme.ProgrammeID}}">
+							    	{{programme.ProgrammeName}}
+							    </option>
+							</select>
+						</div>
+						<div class="form-group col-1">
+							<label>Year</label>
+							<select [(ngModel)]="filter.Year" class="form-control pl-1 pr-0" (change)="fetchKpi()">
+							    <option *ngFor="let year of functions.getYearsBefore(5)" value="{{year}}">{{year}}</option>
+							</select>
+						</div>
+						<div class="form-group col-3">
+							<label>Filter By Activity Name</label>
+							<select [(ngModel)]="filter.ActivityID" class="form-control">
+								<option value="">All</option>
+							    <option *ngFor="let activity of activities" value="{{activity.ActivityID}}">
+							    	{{activity.ActivityName}}
+							    </option>
+							</select>
+						</div>
+						<div class="form-group col-4">
+							<label class="invisible">Action</label>
+							<div class="form-inline pull-right">
+								<button [disabled]="!filter.ProgrammeID || !filter.Year" 
+									class="btn btn-primary mt-1 mb-0" (click)="updateKpis()">
+									<span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+							      Update All
+							    </button>
+						    </div>
+						</div>
+					</div>
+				</div>
+				<div class="card-body">
+					<div>
+						<table class="table">
+							<thead class="text-green">
+								<tr>
+									<th>#</th>
+									<th>Activity Name</th>
+									<th>Indicator</th>	
+									<th>Unit</th>								
+									<th>Target</th>
+									<th>Achievement</th>				
+								</tr>								
+							</thead>
+							<tbody>
+								<tr *ngIf="!rows || rows.length==0">
+									<td class="text-center" colspan="100%">
+										{{
+											errorMessage? errorMessage :
+											('Search could not find any '+ title.toLowerCase() + ' records')
+										}}										
+									</td>
+								</tr>
+								<tr template #elseBlock *ngFor="let row of rows 
+									| KeyFilter:'ActivityID':filter.ActivityID
+									let i=index;">
+									<td>{{(i+1) + '.'}}</td>
+									<td>{{row?.ActivityName || '-'}}</td>
+									<td>{{row?.IndicatorName || '-'}}</td>
+									<td>{{row?.MeasurementUnit || '-'}}</td>
+									<td>{{row?.Target || '-'}}</td>
+									<td>
+										<input class="form-control" type="text" [(ngModel)]="row.Achievement" 
+											onReturn onlyNumber="{{row.QualitativeQuantitative=='QN'}}"
+											placeholder="Achievement" [disabled]="!filter.ProgrammeID || !filter.Year || !row[pk]"/>
+									</td>	
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

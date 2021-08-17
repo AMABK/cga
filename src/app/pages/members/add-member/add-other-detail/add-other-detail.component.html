@@ -1,0 +1,133 @@
+<form *ngIf="this.memberType=='group'" [formGroup]="groupMemberForm">
+	<div class="row justify-content-center">
+		<div class="col-sm-12">
+			<h5 class="info-text">Add Group Members Below</h5>
+		</div>
+	</div> 
+	<table class="table">
+		<thead class="text-green">
+			<tr>				
+				<th>#</th>
+				<th>Full Name</th>
+				<th>National ID</th>
+				<th>Phone</th>
+				<th>
+					<a class="cursor" (click)="addGroupMemberRow();">
+						<span class="fa fa-plus text-success"></span>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<ng-container formArrayName="tableRows" *ngFor="let group of mmc.controls ; let i=index">
+				<tr [formGroupName]="i">
+					<td>{{i+1}}</td>
+					<td>
+		                <input class="form-control" type="text" formControlName="FullName"  
+		                	[ngClass]="{ 'is-invalid': submitted && group.controls.FullName.errors }">
+			            <div *ngIf="submitted && group.controls.FullName.errors" class="invalid-feedback">
+			                <div *ngIf="group.controls.FullName.errors.required">Full name is required</div>
+			            </div>         
+		            </td>		            
+		            <td>
+		                <input class="form-control" type="text" formControlName="IdDocumentNumber"
+		                	[ngClass]="{ 'is-invalid': submitted && group.controls.IdDocumentNumber.errors }">
+			            <div *ngIf="submitted && group.controls.IdDocumentNumber.errors" class="invalid-feedback">
+			                <div *ngIf="group.controls.IdDocumentNumber.errors.required">Id Document Number is required</div>
+			            </div>         
+		            </td>
+		            <td>
+		                <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="PhoneNo"
+							type="text" [ngClass]="{'is-invalid': submitted && group.controls.PhoneNo.errors}"
+							mask="(+000) 000-000000">
+			            <div *ngIf="submitted && group.controls.PhoneNo.errors" class="invalid-feedback">
+			                <div *ngIf="group.controls.PhoneNo.errors.required">Phone number is required</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.minlength">Must be equal to 12 character(s)</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.maxlength">Must be equal to 12 character(s)</div>
+							<div *ngIf="group.controls.PhoneNo.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+			            </div>
+		            </td>
+		            <td>
+		                <a class="cursor" (click)="deleteRow(groupMemberForm,i)">
+		                	<span class="fa fa-times text-danger"></span>&nbsp;
+		                </a>
+		            </td>
+				</tr>
+			</ng-container>
+		</tbody>
+	</table>
+</form>
+
+
+<form *ngIf="this.memberType=='associate'" [formGroup]="associateManagerForm">
+	<div class="row justify-content-center">
+		<div class="col-sm-12">
+			<h5 class="info-text">Add Contact Details Of Managers</h5>
+		</div>
+	</div> 
+	<table class="table">
+		<thead class="text-green">
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Position</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>
+					<a class="cursor" (click)="addAssociateManagerRow();">
+						<span class="fa fa-plus text-success"></span>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<ng-container formArrayName="tableRows" *ngFor="let group of mgc.controls ; let i=index">
+				<tr [formGroupName]="i">
+					<td>{{i+1}}</td>
+					<td>
+		                <input class="form-control" type="text" formControlName="FullName"  
+		                	[ngClass]="{ 'is-invalid': submitted && group.controls.FullName.errors }">
+			            <div *ngIf="submitted && group.controls.FullName.errors" class="invalid-feedback">
+			                <div *ngIf="group.controls.FullName.errors.required">Full name is required</div>
+			            </div>         
+		            </td>
+		            <td>
+		                <input class="form-control" type="text" formControlName="Position" 
+		                	[ngClass]="{ 'is-invalid': submitted && group.controls.Position.errors }">
+			            <div *ngIf="submitted && group.controls.Position.errors" class="invalid-feedback">
+			                <div *ngIf="group.controls.Position.errors.required">Position is required</div>
+			            </div>         
+		            </td>
+		            <td>
+		                <input class="form-control" placeholder="e.g. +254 000 000 000" formControlName="PhoneNo"
+							type="text" [ngClass]="{'is-invalid': submitted && group.controls.PhoneNo.errors}"
+							mask="(+000) 000-000000">
+			            <div *ngIf="submitted && group.controls.PhoneNo.errors" class="invalid-feedback">
+			                <div *ngIf="group.controls.PhoneNo.errors.required">Phone number is required</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.minlength">Must be equal to 12 character(s)</div>
+			                <div *ngIf="group.controls.PhoneNo.errors.maxlength">Must be equal to 12 character(s)</div>
+							<div *ngIf="group.controls.PhoneNo.errors.pattern">Incorrect! use format e.g. (+000) 000-000000</div>
+			            </div>
+		            </td>
+		            <td>
+		                <input type="text" formControlName="email" class="form-control" 
+			            	[ngClass]="{ 'is-invalid': submitted && group.controls.email.errors }"/>
+			            <div *ngIf="submitted && group.controls.email.errors" class="invalid-feedback">
+			                <div *ngIf="group.controls.email.errors.required">Email is required</div>
+			                <div *ngIf="group.controls.email.errors.email">Email must be a valid email address</div>
+			            </div>
+		            </td>
+		            <td>
+		                <a class="cursor" (click)="deleteRow(associateManagerForm,i)">
+		                	<span class="fa fa-times text-danger"></span>&nbsp;
+		                </a>
+		            </td>
+				</tr>
+			</ng-container>
+		</tbody>
+	</table>	
+</form>
+
+<div class="pull-right wizard-submit">		
+	<button type="button" (click)="wsIsValid() && onSubmit()" class="btn btn-success">Submit Now</button>
+</div>
