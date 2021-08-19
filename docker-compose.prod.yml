@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+    cga-app:
+        container_name: cga-prod
+        ports:
+            - "4205:80"
+        tty: true
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile.prod
+        environment:
+            - MODE=production
