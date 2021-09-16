@@ -27,10 +27,11 @@
 					routerlinkactive="active" href="#/{{authService.forgotPasswordPath}}"><i
 						class="nc-icon nc-key-25"></i> Forgot Password </a>
 				</li>
-				<li class="nav-item "><a class="nav-link active"
+				<!--<li class="nav-item "><a class="nav-link active"
 					routerlinkactive="active" href="#/{{authService.registerPath}}"><i
 						class="nc-icon nc-book-bookmark"></i> Register </a>
 				</li>
+				-->
 				<li class="nav-item " *ngIf="authService.isLocked()"><a class="nav-link"
 					routerlinkactive="active" href="javascript:void(0)" (click)="authService.logout()">
 						<i class="nc-icon nc-tap-01"></i> Logout </a>
