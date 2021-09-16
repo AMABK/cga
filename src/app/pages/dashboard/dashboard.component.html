@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
+      <div class="card-body">
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
@@ -11,23 +11,21 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Members</p>
-              <p class="card-title">+{{topStats?.memberCount || 0}}
-                <p>
+              <p class="card-title">+{{ topStats?.memberCount || 0 }}</p>
+              <p></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-refresh"></i> Update Now
-        </div>
+      <div class="card-footer">
+        <hr />
+        <div class="stats"><i class="fa fa-refresh"></i> Update Now</div>
       </div>
     </div>
   </div>
   <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
+      <div class="card-body">
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
@@ -37,23 +35,23 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Registration Fees</p>
-              <p class="card-title">Kes {{topStats?.registrationFees || 0}}
-                <p>
+              <p class="card-title">
+                Kes {{ topStats?.registrationFees || 0 }}
+              </p>
+              <p></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-calendar-o"></i> Last day
-        </div>
+      <div class="card-footer">
+        <hr />
+        <div class="stats"><i class="fa fa-calendar-o"></i> Last day</div>
       </div>
     </div>
   </div>
   <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
+      <div class="card-body">
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
@@ -63,86 +61,88 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Agripreneurs</p>
-              <p class="card-title">+ {{topStats?.agriprenuerCount || 0}}
-                <p>
+              <p class="card-title">+ {{ topStats?.agriprenuerCount || 0 }}</p>
+              <p></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-refresh"></i> Update now
-        </div>
+      <div class="card-footer">
+        <hr />
+        <div class="stats"><i class="fa fa-refresh"></i> Update now</div>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Paid up members by numbers</h5>
-        <p class="card-category">Yearly performance</p>
-      </div>
-      <div class="card-body ">
-        <canvas id=chartMemberCategoryCount width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-history"></i> Updated 3 minutes ago
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="card ">
-      <div class="card-header">
-        <h5 class="card-title">No of Agriprenuers</h5>
-        <p class="card-category">Yearly performance</p>
-      </div>
-      <div class="card-body ">
-        <canvas id=chartAgriprenuers width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-history"></i> Updated 3 minutes ago
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    <div class="card ">
-      <div class="card-header">
-        <h5 class="card-title">No of members recruited per agent</h5>
-        <p class="card-category">Yearly performance</p>
-      </div>
-      <div class="card-body ">
-        <canvas id=chartMembersByAgents width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-history"></i> Updated 3 minutes ago
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="card ">
+  <div class="col-md-12">
+    <div class="card">
       <div class="card-header">
         <h5 class="card-title">No of Input Sold</h5>
         <p class="card-category">Yearly performance</p>
       </div>
-      <div class="card-body ">
-        <canvas id=chartInputsold width="400" height="100"></canvas>
+      <div class="card-body">
+        <canvas id="chartInputsold" width="400" height="100"></canvas>
       </div>
-      <div class="card-footer ">
-        <hr>
+      <div class="card-footer">
+        <hr />
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Paid up members by numbers</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body">
+        <canvas id="chartMemberCategoryCount" width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">No of Agriprenuers</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body">
+        <canvas id="chartAgriprenuers" width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">No of members recruited per agent</h5>
+        <p class="card-category">Yearly performance</p>
+      </div>
+      <div class="card-body">
+        <canvas id="chartMembersByAgents" width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer">
+        <hr />
         <div class="stats">
           <i class="fa fa-history"></i> Updated 3 minutes ago
         </div>
@@ -152,16 +152,16 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <div class="card ">
+    <div class="card">
       <div class="card-header">
-        <h5 class="card-title">Acres Mechanized </h5>
+        <h5 class="card-title">Acres Mechanized</h5>
         <p class="card-category">Yearly performance</p>
       </div>
-      <div class="card-body ">
-        <canvas id=chartMembersByAgents2 width="400" height="100"></canvas>
+      <div class="card-body">
+        <canvas id="chartMembersByAgents2" width="400" height="100"></canvas>
       </div>
-      <div class="card-footer ">
-        <hr>
+      <div class="card-footer">
+        <hr />
         <div class="stats">
           <i class="fa fa-history"></i> Updated 3 minutes ago
         </div>
@@ -169,16 +169,21 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="card ">
+    <div class="card">
       <div class="card-header">
         <h5 class="card-title">Agripreneurs By County</h5>
         <p class="card-category">Bar Chart</p>
       </div>
-      <div class="card-body ">
-        <canvas id=chartFinanceByCounty County width="400" height="100"></canvas>
+      <div class="card-body">
+        <canvas
+          id="chartFinanceByCounty"
+          County
+          width="400"
+          height="100"
+        ></canvas>
       </div>
-      <div class="card-footer ">
-        <hr>
+      <div class="card-footer">
+        <hr />
         <div class="stats">
           <i class="fa fa-history"></i> Updated 3 minutes ago
         </div>
@@ -188,16 +193,16 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <div class="card ">
+    <div class="card">
       <div class="card-header">
         <h5 class="card-title">Crop aggregation by value</h5>
         <p class="card-category">Pie Chart</p>
       </div>
-      <div class="card-body ">
-        <canvas id=chartCropAgreggatioByValue ></canvas>
+      <div class="card-body">
+        <canvas id="chartCropAgreggatioByValue"></canvas>
       </div>
-      <div class="card-footer ">
-        <hr>
+      <div class="card-footer">
+        <hr />
         <div class="stats">
           <i class="fa fa-history"></i> Updated 3 minutes ago
         </div>
@@ -205,16 +210,16 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="card ">
+    <div class="card">
       <div class="card-header">
         <h5 class="card-title">Mechanization report</h5>
         <p class="card-category"></p>
       </div>
-      <div class="card-body ">
-        <canvas id=chartInputsold width="400" height="100"></canvas>
+      <div class="card-body">
+        <canvas id="chartInputsold" width="400" height="100"></canvas>
       </div>
-      <div class="card-footer ">
-        <hr>
+      <div class="card-footer">
+        <hr />
         <div class="stats">
           <i class="fa fa-history"></i> Updated 3 minutes ago
         </div>
@@ -224,16 +229,16 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <div class="card ">
+    <div class="card">
       <div class="card-header">
         <h5 class="card-title">Crop Aggregation By Volumes</h5>
         <p class="card-category">Pie Chart</p>
       </div>
-      <div class="card-body ">
-        <canvas id=chartCropaggregation></canvas>
+      <div class="card-body">
+        <canvas id="chartCropaggregation"></canvas>
       </div>
-      <div class="card-footer ">
-        <hr>
+      <div class="card-footer">
+        <hr />
         <div class="stats">
           <i class="fa fa-history"></i> Updated 3 minutes ago
         </div>
