@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:4205/'
+  apiUrl: 'https://cgab.optimuse-solutions.com/'
   // apiUrl: 'http://64.225.28.227:3000/'
 };
