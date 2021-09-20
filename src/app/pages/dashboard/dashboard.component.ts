@@ -162,33 +162,7 @@ export class DashboardComponent implements OnInit {
         tooltips: {
           enabled: true
         },
-        scales: {
-          yAxes: [{
-            ticks: {
-              fontColor: "#9f9f9f",
-              beginAtZero: true,
-              maxTicksLimit: 1,
-              padding: 20
-            },
-            gridLines: {
-              drawBorder: false,
-              zeroLineColor: "#ccc",
-              color: 'rgba(255,255,255,0.05)'
-            }
-          }],
-          xAxes: [{
-            gridLines: {
-              drawBorder: false,
-              color: 'rgba(255,255,255,0.1)',
-              zeroLineColor: "transparent",
-              display: false,
-            },
-            ticks: {
-              padding: 20,
-              fontColor: "#9f9f9f"
-            }
-          }]
-        },
+        
       }
     });
 
